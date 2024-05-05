@@ -195,7 +195,16 @@ in {
         kernelPatches.rust_1_77-6_8
       ];
     };
-
+    linux_rt_6_8 = callPackage ../os-specific/linux/kernel/linux-rt-6.8.nix {
+      branch = "6.8";
+      kernelPatches = [
+        kernelPatches.bridge_stp_helper
+        kernelPatches.request_key_helper
+        kernelPatches.rust_1_75
+        kernelPatches.rust_1_76
+        kernelPatches.rust_1_77-6_8
+      ];
+    };
     linux_testing = let
       testing = callPackage ../os-specific/linux/kernel/mainline.nix {
         # A special branch that tracks the kernel under the release process
