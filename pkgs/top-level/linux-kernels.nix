@@ -631,6 +631,7 @@ in {
      linux_rt_5_15 = packagesFor kernels.linux_rt_5_15;
      linux_rt_6_1 = packagesFor kernels.linux_rt_6_1;
      linux_rt_6_6 = packagesFor kernels.linux_rt_6_6;
+     linux_rt_6_8 = packagesFor kernels.linux_rt_6_8;
      __attrsFailEvaluation = true;
   };
 
@@ -680,7 +681,7 @@ in {
     linux_latest = packages.linux_6_8;
     linux_mptcp = throw "'linux_mptcp' has been moved to https://github.com/teto/mptcp-flake";
     linux_rt_default = packages.linux_rt_5_4;
-    linux_rt_latest = packages.linux_rt_6_6;
+    linux_rt_latest = packages.linux_rt_6_8;
   } // { __attrsFailEvaluation = true; };
 
   manualConfig = callPackage ../os-specific/linux/kernel/manual-config.nix {};
