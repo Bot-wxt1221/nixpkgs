@@ -17,8 +17,8 @@ in buildLinux (args // {
     else lib.replaceStrings ["-"] [".0-"] version;
 
   src = fetchurl {
-    url = "https://github.com/Bot-wxt1221/linux/archive/refs/tags/v6.8.9-rt.zip";
-    sha256 = "013xs37cnan72baqvmn2qrcbs5bbcv1gaafrcx3a166gbgc25hws";
+    url = "https://github.com/Bot-wxt1221/linux/archive/refs/tags/v6.8.9-rt11.tar.gz";
+    sha256 = "sha256-a9wT+a0Pxhm0CsP+M7lFLINi8utI0wrSqozriWkWhhU=";
   };
 
   structuredExtraConfig = with lib.kernel; {

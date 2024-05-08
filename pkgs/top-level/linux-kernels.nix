@@ -196,13 +196,10 @@ in {
       ];
     };
     linux_rt_6_8 = callPackage ../os-specific/linux/kernel/linux-rt-6.8.nix {
-      branch = "6.8";
       kernelPatches = [
         kernelPatches.bridge_stp_helper
         kernelPatches.request_key_helper
-        kernelPatches.rust_1_75
-        kernelPatches.rust_1_76
-        kernelPatches.rust_1_77-6_8
+        kernelPatches.export-rt-sched-migrate
       ];
     };
     linux_testing = let
@@ -547,7 +544,7 @@ in {
 
     virtualboxGuestAdditions = callPackage ../applications/virtualization/virtualbox/guest-additions { };
 
-    vm-tools = callPackage ../os-specific/linux/vm-tools { };
+    vm-tools = if lib.versionOlder kernel.version "6.7" then callPackage ../os-specific/linux/vm-tools { } else null;
 
     vmm_clock = callPackage ../os-specific/linux/vmm_clock { };
 
@@ -592,11 +589,6 @@ in {
     drbd = callPackage ../os-specific/linux/drbd/driver.nix { };
 
   } // lib.optionalAttrs config.allowAliases {
-    ati_drivers_x11 = throw "ati drivers are no longer supported by any kernel >=4.1"; # added 2021-05-18;
-    hid-nintendo = throw "hid-nintendo was added in mainline kernel version 5.16"; # Added 2023-07-30
-    sch_cake = throw "sch_cake was added in mainline kernel version 4.19"; # Added 2023-06-14
-    rtl8723bs = throw "rtl8723bs was added in mainline kernel version 4.12"; # Added 2023-06-14
-    xmm7360-pci = throw "Support for the XMM7360 WWAN card was added to the iosm kmod in mainline kernel version 5.18";
   });
 
   hardenedPackagesFor = kernel: overrides: packagesFor (hardenedKernelFor kernel overrides);
