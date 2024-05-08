@@ -78,11 +78,6 @@ stdenv.mkDerivation rec {
 
     runHook postInstall
   '';
-  postInstall = ''
-    install -Dm644 $out/etc/systemd/system/todeskd.service $out/lib/systemd/system/todeskd.service
-    substituteInPlace $out/etc/systemd/system/todeskd.service \
-     --replace /opt/todesk/bin $out/opt/todesk/bin
-  '';
 
   meta = with lib; {
     description = "A Remote Desktop Application";
