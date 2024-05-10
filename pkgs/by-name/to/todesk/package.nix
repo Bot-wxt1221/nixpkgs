@@ -85,7 +85,7 @@ stdenv.mkDerivation rec {
     license = licenses.unfree;
     platforms = with platforms; [ "x86_64-linux" ];
     sourceProvenance = with sourceTypes; [ binaryNativeCode ];
-    maintainers = with maintainers; [ Bot-wxt1221 ];
+    maintainers = with maintainers; [ bot-wxt1221 ];
     mainProgram = "ToDesk";
   };
 }
