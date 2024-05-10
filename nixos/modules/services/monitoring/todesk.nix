@@ -10,15 +10,6 @@ in
 
 {
 
-  ###### interface
-  options = {
-
-    services.todesk.enable = mkEnableOption "ToDesk daemon";
-
-  };
-
-  ###### implementation
-
   config = mkIf (cfg.enable) {
 
     environment.systemPackages = [ pkgs.todesk ];
