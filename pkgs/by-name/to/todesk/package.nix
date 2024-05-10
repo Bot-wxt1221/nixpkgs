@@ -38,44 +38,40 @@ stdenv.mkDerivation rec {
 
   nativeBuildInputs = [ dpkg autoPatchelfHook ];
   buildInputs = [
-   nspr
-   kmod
-   systemdMinimal
-   glib
-   libX11
-   libXrandr
-   glibc
-   libdrm
-   libGL
-   libXcomposite
-   libXdamage
-   libXfixes
-   libXtst
-   nss
-   libXxf86vm
-   gtk3
-   gdk-pixbuf
-   pango
-   appindicator-sharp
+    nspr
+    kmod
+    systemdMinimal
+    glib
+    libX11
+    libXrandr
+    glibc
+    libdrm
+    libGL
+    libXcomposite
+    libXdamage
+    libXfixes
+    libXtst
+    nss
+    libXxf86vm
+    gtk3
+    gdk-pixbuf
+    pango
+    appindicator-sharp
   ];
 
   autoPatchelfIgnoreMissingDeps = [ "iHD_drv_video.so" "libglut.so" "libigdgmm.so" "libmfx.so" "libmfxhw64.so" "libva.so" "libva-drm.so" "libva-x11.so" "libzrtc.so" ];
 
   unpackPhase = ''
     runHook preUnpack
-
     dpkg -x $src ./todesk-src
-
     runHook postUnpack
   '';
 
   installPhase = ''
     runHook preInstall
-
     mkdir -p "$out"
     mkdir -p $out/lib
     cp -r todesk-src/* "$out"
-
     runHook postInstall
   '';
 
@@ -85,7 +81,7 @@ stdenv.mkDerivation rec {
     license = licenses.unfree;
     platforms = with platforms; [ "x86_64-linux" ];
     sourceProvenance = with sourceTypes; [ binaryNativeCode ];
-    maintainers = with maintainers; [ Bot-wxt1221 ];
+    maintainers = with maintainers; [ bot-wxt1221 ];
     mainProgram = "ToDesk";
   };
 }
