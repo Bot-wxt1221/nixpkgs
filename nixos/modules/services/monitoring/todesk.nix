@@ -11,7 +11,7 @@ in
 {
 
   ###### interface
- options = {
+  options = {
 
     services.todesk.enable = mkEnableOption "ToDesk daemon";
 
@@ -34,11 +34,11 @@ in
 
       serviceConfig = {
         Type = "simple";
-	Environment = "LIBVA_DRIVER_NAME=iHD LIBVA_DRIVERS_PATH=${pkgs.todesk}/opt/todesk/bin";
+        Environment = "LIBVA_DRIVER_NAME=iHD LIBVA_DRIVERS_PATH=${pkgs.todesk}/opt/todesk/bin";
         ExecStart = "${pkgs.todesk}/opt/todesk/bin/ToDesk_Service";
         ExecReload = "${pkgs.coreutils}/bin/kill -SIGINT $MAINPID";
         Restart = "on-failure";
-	User = "root";
+        User = "root";
       };
     };
   };
