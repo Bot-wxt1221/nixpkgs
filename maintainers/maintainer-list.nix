@@ -13814,6 +13814,12 @@
     githubId = 133448;
     name = "Mikołaj Siedlarek";
   };
+  msladecek = {
+    email = "martin.sladecek+nixpkgs@gmail.com";
+    name = "Martin Sladecek";
+    github = "msladecek";
+    githubId = 7304317;
+  };
   mslingsby = {
     email = "morten.slingsby@eviny.no";
     github = "MortenSlingsby";
@@ -22114,6 +22120,12 @@
     github = "y0no";
     githubId = 2242427;
     name = "Yoann Ono";
+  };
+  yah = {
+    email = "yah@singularpoint.cc";
+    github = "wangxiaoerYah";
+    githubId = 48443038;
+    name = "Yah";
   };
   yajo = {
     email = "yajo.sk8@gmail.com";
