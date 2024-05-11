@@ -17819,6 +17819,12 @@
       fingerprint = "E628 C811 6FB8 1657 F706  4EA4 F251 ADDC 9D04 1C7E";
     }];
   };
+  sailord = {
+    name = "Sailord";
+    email = "sailord328@gmail.com";
+    github = "Sail0rd";
+    githubId = 55802415;
+  };
   samalws = {
     email = "sam@samalws.com";
     name = "Sam Alws";
@@ -20691,6 +20697,11 @@
     github = "hmuehlhans";
     githubId = 9870613;
     name = "Hubert Mühlhans";
+  };
+  trishtzy = {
+    github = "trishtzy";
+    githubId = 5356506;
+    name = "Tricia Tan";
   };
   trobert = {
     email = "thibaut.robert@gmail.com";
