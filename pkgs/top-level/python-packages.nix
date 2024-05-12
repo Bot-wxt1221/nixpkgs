@@ -9891,6 +9891,8 @@ self: super: with self; {
 
   ppdeep = callPackage ../development/python-modules/ppdeep { };
 
+  private-gpt = callPackage ../development/python-modules/private-gpt { };
+
   prodict = callPackage ../development/python-modules/prodict { };
 
   prometheus-pandas = callPackage ../development/python-modules/prometheus-pandas { };
@@ -13565,6 +13567,8 @@ self: super: with self; {
   sansio-multipart = callPackage ../development/python-modules/sansio-multipart { };
 
   sarif-om = callPackage ../development/python-modules/sarif-om { };
+
+  sarif-tools = callPackage ../development/python-modules/sarif-tools { };
 
   sarge = callPackage ../development/python-modules/sarge { };
 
