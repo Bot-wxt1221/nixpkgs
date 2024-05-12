@@ -498,10 +498,6 @@ with pkgs;
     inherit (darwin.apple_sdk.frameworks) Security;
   };
 
-  codeberg-cli = callPackage ../applications/version-management/codeberg-cli {
-    inherit (darwin.apple_sdk.frameworks) Security CoreServices;
-  };
-
   conftest = callPackage ../development/tools/conftest { };
 
   coldsnap = callPackage ../tools/admin/coldsnap {
@@ -7806,8 +7802,6 @@ with pkgs;
   enc = callPackage ../tools/security/enc { };
 
   endlessh = callPackage ../servers/endlessh { };
-
-  endlessh-go = callPackage ../servers/endlessh-go { };
 
   ericw-tools = callPackage ../applications/misc/ericw-tools { };
 
@@ -20472,8 +20466,6 @@ with pkgs;
 
   cre2 = callPackage ../development/libraries/cre2 { };
 
-  criterion = callPackage ../development/libraries/criterion { };
-
   croaring = callPackage ../development/libraries/croaring { };
 
   crocoddyl = callPackage ../development/libraries/crocoddyl { };
@@ -32944,8 +32936,6 @@ with pkgs;
     withConplay = false;
   };
 
-  mpg321 = callPackage ../applications/audio/mpg321 { };
-
   mpc-cli = callPackage ../applications/audio/mpc {
     inherit (python3Packages) sphinx;
   };
@@ -35254,7 +35244,9 @@ with pkgs;
   virtualbox = libsForQt5.callPackage ../applications/virtualization/virtualbox {
     stdenv = stdenv_32bit;
     inherit (gnome2) libIDL;
-    jdk = openjdk17;
+
+    # VirtualBox uses wsimport, which was removed after JDK 8.
+    jdk = jdk8;
   };
 
   virtualboxKvm = lowPrio (virtualbox.override {
@@ -36226,8 +36218,6 @@ with pkgs;
   zecwallet-lite = callPackage ../applications/blockchains/zecwallet-lite { };
 
   lightwalletd = callPackage ../applications/blockchains/lightwalletd { };
-
-  openethereum = callPackage ../applications/blockchains/openethereum { };
 
   polkadot = callPackage ../applications/blockchains/polkadot {
     inherit (darwin.apple_sdk.frameworks) Security SystemConfiguration;
