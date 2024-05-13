@@ -70,8 +70,11 @@ stdenv.mkDerivation rec {
   installPhase = ''
     runHook preInstall
     mkdir -p "$out"
-    mkdir -p $out/lib
     cp -r todesk-src/* "$out"
+    mv $out/usr/share/applications/todesk.desktop $out/share/applications
+     substituteInPlace "$out/share/applications/todesk.desktop" \
+      --replace '/opt/todesk' \
+        "$out/opt/todesk"
     runHook postInstall
   '';
 
