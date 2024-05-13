@@ -202,6 +202,15 @@ in {
         kernelPatches.export-rt-sched-migrate
       ];
     };
+    linux_6_9 = callPackage ../os-specific/linux/kernel/mainline.nix {
+      branch = "6.9";
+      kernelPatches = [
+        kernelPatches.bridge_stp_helper
+        kernelPatches.request_key_helper
+        kernelPatches.rust_1_77-6_9
+      ];
+    };
+
     linux_testing = let
       testing = callPackage ../os-specific/linux/kernel/mainline.nix {
         # A special branch that tracks the kernel under the release process
@@ -608,6 +617,7 @@ in {
     linux_6_1 = recurseIntoAttrs (packagesFor kernels.linux_6_1);
     linux_6_6 = recurseIntoAttrs (packagesFor kernels.linux_6_6);
     linux_6_8 = recurseIntoAttrs (packagesFor kernels.linux_6_8);
+    linux_6_9 = recurseIntoAttrs (packagesFor kernels.linux_6_9);
     __attrsFailEvaluation = true;
   } // lib.optionalAttrs config.allowAliases {
     linux_4_9 = throw "linux 4.9 was removed because it will reach its end of life within 22.11"; # Added 2022-11-08
@@ -676,7 +686,7 @@ in {
   packageAliases = {
     linux_default = packages.linux_6_6;
     # Update this when adding the newest kernel major version!
-    linux_latest = packages.linux_6_8;
+    linux_latest = packages.linux_6_9;
     linux_mptcp = throw "'linux_mptcp' has been moved to https://github.com/teto/mptcp-flake";
     linux_rt_default = packages.linux_rt_6_8;
     linux_rt_latest = packages.linux_rt_6_8;
