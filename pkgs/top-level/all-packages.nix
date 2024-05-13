@@ -4765,8 +4765,6 @@ with pkgs;
 
   wtype = callPackage ../tools/wayland/wtype { };
 
-  ydotool = callPackage ../tools/wayland/ydotool { };
-
   cambalache = callPackage ../development/tools/cambalache { };
 
   cambrinary = python3Packages.callPackage ../applications/misc/cambrinary { };
@@ -40942,8 +40940,6 @@ with pkgs;
   fac-build = callPackage ../development/tools/build-managers/fac {
     inherit (darwin.apple_sdk.frameworks) CoreServices;
   };
-
-  treefmt = callPackage ../development/tools/treefmt { };
 
   nufmt = callPackage ../development/tools/nufmt { };
 
