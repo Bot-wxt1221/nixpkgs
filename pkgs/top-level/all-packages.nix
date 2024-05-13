@@ -193,7 +193,6 @@ with pkgs;
       pythonInterpreter = "${python3.withPackages (ps: [ ps.pyelftools ])}/bin/python";
       autoPatchelfScript = ../build-support/setup-hooks/auto-patchelf.py;
     };
-    meta.platforms = lib.platforms.linux ++ lib.platforms.freebsd;
   } ../build-support/setup-hooks/auto-patchelf.sh;
 
   tomato-c = callPackage ../applications/misc/tomato-c { };
@@ -26041,8 +26040,6 @@ with pkgs;
 
   olaris-server = callPackage ../servers/olaris { };
 
-  onagre = callPackage ../applications/misc/onagre { };
-
   onlyoffice-documentserver = callPackage ../servers/onlyoffice-documentserver { };
 
   outline = callPackage ../servers/web-apps/outline (lib.fix (super: {
@@ -32646,8 +32643,6 @@ with pkgs;
   };
 
   makeself = callPackage ../applications/misc/makeself { };
-
-  mako = callPackage ../applications/misc/mako { };
 
   mandelbulber = libsForQt5.callPackage ../applications/graphics/mandelbulber { };
 
