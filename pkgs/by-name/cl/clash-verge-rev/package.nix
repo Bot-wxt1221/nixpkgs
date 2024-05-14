@@ -5,7 +5,7 @@
 
 clash-verge.overrideAttrs (old: rec {
   pname = "clash-verge-rev";
-  version = "1.6.1";
+  version = "1.6.2";
 
   src = fetchurl {
     url = "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v${version}/clash-verge_${version}_amd64.deb";
