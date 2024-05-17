@@ -2986,6 +2986,14 @@
     githubId = 184563;
     name = "Bruno Paz";
   };
+  brsvh = {
+    email = "bsc@brsvh.org";
+    github = "brsvh";
+    githubId = 63050399;
+    keys = [ { fingerprint = "7B74 0DB9 F2AC 6D3B 226B  C530 78D7 4502 D92E 0218"; } ];
+    matrix = "@brsvh:mozilla.org";
+    name = "Burgess Chang";
+  };
   bryanasdev000 = {
     email = "bryanasdev000@gmail.com";
     matrix = "@bryanasdev000:matrix.org";
@@ -3525,6 +3533,16 @@
     githubId = 28303440;
     name = "Max Hausch";
   };
+  cherrykitten = {
+    email = "contact@cherrykitten.dev";
+    github = "cherrykitten";
+    githubId = 20300586;
+    matrix = "@sammy:cherrykitten.dev";
+    name = "CherryKitten";
+    keys = [{
+      fingerprint = "264C FA1A 194C 585D F822  F673 C01A 7CBB A617 BD5F";
+    }];
+  };
   chessai = {
     email = "chessai1996@gmail.com";
     github = "chessai";
@@ -3845,6 +3863,14 @@
     github = "cobbal";
     githubId = 180339;
     name = "Andrew Cobb";
+  };
+  coca = {
+    github = "Coca162";
+    githubId = 62479942;
+    name = "Coca";
+    keys = [{
+      fingerprint = "99CB 86FF 62BB 7DA4 8903  B16D 0328 2DF8 8179 AB19";
+    }];
   };
   coconnor = {
     email = "coreyoconnor@gmail.com";
@@ -6480,6 +6506,15 @@
     github = "falsifian";
     githubId = 225893;
     name = "James Cook";
+  };
+  fangpen = {
+    email = "hello@fangpenlin.com";
+    github = "fangpenlin";
+    githubId = 201615;
+    name = "Fang-Pen Lin";
+    keys = [{
+      fingerprint = "7130 3454 A7CD 0F0A 941A  F9A3 2A26 9964 AD29 2131";
+    }];
   };
   farcaller = {
     name = "Vladimir Pouzanov";
