@@ -6050,10 +6050,6 @@ with pkgs;
 
   pcp = callPackage ../tools/misc/pcp { };
 
-  persepolis = python3Packages.callPackage ../tools/networking/persepolis {
-    wrapQtAppsHook = qt5.wrapQtAppsHook;
-  };
-
   pev = callPackage ../development/tools/analysis/pev { };
 
   phd2 = callPackage ../applications/science/astronomy/phd2 { };
@@ -31995,8 +31991,10 @@ with pkgs;
   };
 
   jabref = callPackage ../applications/office/jabref {
-    jdk = jdk21.override { enableJavaFX = true; };
-    gradle = gradle_8;
+    jdk = jdk.override {
+      enableJavaFX = true;
+      openjfx = openjfx22.override { withWebKit = true; };
+    };
   };
 
   jack_capture = callPackage ../applications/audio/jack-capture { };
