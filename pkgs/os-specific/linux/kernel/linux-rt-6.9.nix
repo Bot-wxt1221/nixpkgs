@@ -6,7 +6,7 @@
 , ... } @ args:
 
 let
-  version = "6.8.9-rt11"; # updated by ./update-rt.sh
+  version = "6.9.1-rt5"; # updated by ./update-rt.sh
   branch = lib.versions.majorMinor version;
   kversion = builtins.elemAt (lib.splitString "-" version) 0;
 in buildLinux (args // {
@@ -29,6 +29,9 @@ in buildLinux (args // {
     PREEMPT_VOLUNTARY = lib.mkForce no; # PREEMPT_RT deselects it.
     # Fix error: unused option: RT_GROUP_SCHED.
     RT_GROUP_SCHED = lib.mkForce (option no); # Removed by sched-disable-rt-group-sched-on-rt.patch.
+    DAMON_DBGFS_DEPRECATED = yes;
+    MITIGATION_SLS = yes;
+    
   } // structuredExtraConfig;
 
   extraMeta = extraMeta // {
