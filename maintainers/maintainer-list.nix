@@ -6839,6 +6839,12 @@
       fingerprint = "B722 6464 838F 8BDB 2BEA  C8C8 5B0E FDDF BA81 6105";
     }];
   };
+  Forden = {
+    email = "forden@zuku.tech";
+    github = "Forden";
+    githubId = 24463229;
+    name = "Forden";
+  };
   forkk = {
     email = "forkk@forkk.net";
     github = "Forkk";
@@ -10479,6 +10485,12 @@
     github = "kbdharun";
     githubId = 26346867;
     name = "K.B.Dharun Krishna";
+  };
+  kbudde = {
+    email = "kris@budd.ee";
+    github = "kbudde";
+    githubId = 1072181;
+    name = "Kris Budde";
   };
   kcalvinalvin = {
     email = "calvin@kcalvinalvin.info";
