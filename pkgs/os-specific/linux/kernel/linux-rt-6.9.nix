@@ -18,7 +18,7 @@ in buildLinux (args // {
 
   src = fetchurl {
     url = "https://github.com/Bot-wxt1221/linux/archive/refs/tags/6.9.1.tar.gz";
-    sha256 = "sha256-ip0Ldk3LXjlnGLH5CT5opFLT2fxZuxpl8r+lzUMBGok=";
+    sha256 = "sha256-yPct/UAlVP01ut3yvf5du5mwK3fpK9DQ9BBX5YmjH+Y=";
   };
 
   structuredExtraConfig = with lib.kernel; {
