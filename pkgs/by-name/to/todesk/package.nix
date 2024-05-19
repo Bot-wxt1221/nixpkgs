@@ -23,6 +23,7 @@
 , nss
 , libXxf86vm
 , gtk3
+, coreutils
 , gdk-pixbuf
 , pango
 , appindicator-sharp
@@ -43,6 +44,7 @@ stdenv.mkDerivation rec {
     kmod
     systemdMinimal
     glib
+    coreutils
     libX11
     libXrandr
     glibc
@@ -78,7 +80,7 @@ stdenv.mkDerivation rec {
      substituteInPlace "$out/share/applications/todesk.desktop" \
       --replace '/opt/todesk' \
         "$out/opt/todesk"
-    echo -e '#!$/bin/sh\n${pkgs.coreutils}/sudo -i -u ''\''$Tuser bash << EOF \n/opt/todesk/bin/ToDesk_Service \nEOF' > $out/opt/todesk/start.sh
+    echo -e '#!$/bin/sh\nsudo -i -u ''\''$Tuser bash << EOF \n/opt/todesk/bin/ToDesk_Service \nEOF' > $out/opt/todesk/start.sh
     chmod +x $out/opt/todesk/start.sh
     runHook postInstall
   '';
