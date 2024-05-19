@@ -39,7 +39,7 @@ in
         ExecStart = "sudo -i -u ${cfg.user} bash << EOF /opt/todesk/bin/ToDesk_Service EOF";
         ExecReload = "${pkgs.coreutils}/bin/kill -SIGINT $MAINPID";
         Restart = "on-failure";
-	User = root;
+	User = "root";
       };
     };
   };
