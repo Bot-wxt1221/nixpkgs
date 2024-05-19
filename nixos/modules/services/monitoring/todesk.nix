@@ -35,8 +35,8 @@ in
       preStart = "mkdir -pv /opt/todesk&&cp -rf ${pkgs.todesk}/opt/todesk/* /opt/todesk";
       serviceConfig = {
         Type = "simple";
-	Environment = "LIBVA_DRIVER_NAME=iHD LIBVA_DRIVERS_PATH=${pkgs.todesk}/opt/todesk/bin";
-        ExecStart = ''user=${cfg.user} ${pkgs.todesk}/opt/todesk/start.sh'';
+	Environment = "LIBVA_DRIVER_NAME=iHD LIBVA_DRIVERS_PATH=${pkgs.todesk}/opt/todesk/bin Tuser=${cfg.user}";
+        ExecStart = ''${pkgs.todesk}/opt/todesk/start.sh'';
         ExecReload = "${pkgs.coreutils}/bin/kill -SIGINT $MAINPID";
         Restart = "on-failure";
 	User = "root";
