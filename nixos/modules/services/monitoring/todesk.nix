@@ -32,11 +32,11 @@ in
       after = [ "network-online.target" ];
       before = [ "nss-lookup.target" ];
       requires = [ "dbus.service" ];
-      preStart = "mkdir -pv /var/lib/todesk&&cp ${pkgs.todesk}/opt/todesk/bin/ToDesk_Service /var/lib/todesk";
+      preStart = "mkdir -pv /opt/todesk&&cp -rf ${pkgs.todesk}/opt/todesk/* /opt/todesk";
       serviceConfig = {
         Type = "simple";
 	Environment = "LIBVA_DRIVER_NAME=iHD LIBVA_DRIVERS_PATH=${pkgs.todesk}/opt/todesk/bin";
-        ExecStart = "/var/lib/ToDesk_Service";
+        ExecStart = "/opt/todesk/bin/ToDesk_Service";
         ExecReload = "${pkgs.coreutils}/bin/kill -SIGINT $MAINPID";
         Restart = "on-failure";
 	User = cfg.user;
