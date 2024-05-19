@@ -10,6 +10,16 @@ in
 
 {
 
+  ###### interface
+ options = {
+
+    services.todesk.enable = mkEnableOption "ToDesk daemon";
+    services.todesk.user = mkOption {description = "Todesk daemon user";type=types.str;};
+
+  };
+
+  ###### implementation
+
   config = mkIf (cfg.enable) {
 
     environment.systemPackages = [ pkgs.todesk ];
@@ -22,14 +32,14 @@ in
       after = [ "network-online.target" ];
       before = [ "nss-lookup.target" ];
       requires = [ "dbus.service" ];
-
+      preStart = "install ${pkgs.todesk}/opt/todesk/start.sh /opt/todesk/bin/start.sh&&cp -rf ${pkgs.todesk}/opt/todesk/* /opt/todesk&&chown ${cfg.user} /opt/todesk &&chmod +x /opt/todesk/start.sh&&sed -i 's#sudo#${pkgs.sudo}/bin/sudo#g' /opt/todesk/start.sh" ;
       serviceConfig = {
         Type = "simple";
-        Environment = "LIBVA_DRIVER_NAME=iHD LIBVA_DRIVERS_PATH=${pkgs.todesk}/opt/todesk/bin";
-        ExecStart = "${pkgs.todesk}/opt/todesk/bin/ToDesk_Service";
+	Environment = "LIBVA_DRIVER_NAME=iHD LIBVA_DRIVERS_PATH=${pkgs.todesk}/opt/todesk/bin Tuser=${cfg.user}";
+        ExecStart = "/opt/todesk/start.sh";
         ExecReload = "${pkgs.coreutils}/bin/kill -SIGINT $MAINPID";
         Restart = "on-failure";
-        User = "root";
+	User = "root";
       };
     };
   };

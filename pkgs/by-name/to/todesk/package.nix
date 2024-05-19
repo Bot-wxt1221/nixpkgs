@@ -1,9 +1,10 @@
 { stdenv
 , lib
-, fetchurl
+, requireFile
 , dpkg
 , autoPatchelfHook
 , makeWrapper
+, sudo
 , gzip
 , gnutar
 , nspr
@@ -14,6 +15,7 @@
 , libXrandr
 , glibc
 , libdrm
+, coreutils
 , libGL
 , libXcomposite
 , libXdamage
@@ -31,7 +33,7 @@ stdenv.mkDerivation rec {
   pname = "todesk";
   version = "4.7.2.0";
 
-  src = fetchurl {
+  src = requireFile {
     url = "https://dl.todesk.com/linux/todesk-v${version}-amd64.deb";
     sha256 = "sha256-v7VpXXFVaKI99RpzUWfAc6eE7NHGJeFrNeUTbVuX+yg=";
   };
@@ -42,6 +44,7 @@ stdenv.mkDerivation rec {
     kmod
     systemdMinimal
     glib
+    coreutils
     libX11
     libXrandr
     glibc
@@ -49,6 +52,7 @@ stdenv.mkDerivation rec {
     libGL
     libXcomposite
     libXdamage
+    sudo
     libXfixes
     libXtst
     nss
@@ -63,19 +67,22 @@ stdenv.mkDerivation rec {
 
   unpackPhase = ''
     runHook preUnpack
-
     dpkg -x $src ./todesk-src
-
     runHook postUnpack
   '';
 
   installPhase = ''
     runHook preInstall
-
     mkdir -p "$out"
-    mkdir -p $out/lib
     cp -r todesk-src/* "$out"
-
+    mkdir "$out/share"
+    mkdir "$out/share/applications"
+    mv $out/usr/share/applications/todesk.desktop $out/share/applications
+     substituteInPlace "$out/share/applications/todesk.desktop" \
+      --replace '/opt/todesk' \
+        "$out/opt/todesk"
+    echo -e '#!$/bin/sh\nsudo -i -u ''\''$Tuser sh << EOF \n/opt/todesk/bin/ToDesk_Service \nEOF' > $out/opt/todesk/start.sh
+    chmod +x $out/opt/todesk/start.sh
     runHook postInstall
   '';
 
