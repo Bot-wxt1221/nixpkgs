@@ -33,8 +33,8 @@ stdenv.mkDerivation rec {
   pname = "todesk";
   version = "4.7.2.0";
 
-  src = fetchurl {
-    url = "https://github.com/Bot-wxt1221/Bot-wxt1221-NvChad/releases/download/temp/todesk-v4.7.2.0-amd64.deb";
+  src = requirefile {
+    url = "https://dl.todesk.com/linux/todesk-v${version}-amd64.deb";
     sha256 = "sha256-v7VpXXFVaKI99RpzUWfAc6eE7NHGJeFrNeUTbVuX+yg=";
   };
 
