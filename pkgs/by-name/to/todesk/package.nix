@@ -33,7 +33,7 @@ stdenv.mkDerivation rec {
   pname = "todesk";
   version = "4.7.2.0";
 
-  src = requirefile {
+  src = requireFile {
     url = "https://dl.todesk.com/linux/todesk-v${version}-amd64.deb";
     sha256 = "sha256-v7VpXXFVaKI99RpzUWfAc6eE7NHGJeFrNeUTbVuX+yg=";
   };
