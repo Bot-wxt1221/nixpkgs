@@ -4,6 +4,7 @@
 , dpkg
 , autoPatchelfHook
 , makeWrapper
+, sudo
 , gzip
 , gnutar
 , nspr
@@ -51,6 +52,7 @@ stdenv.mkDerivation rec {
     libGL
     libXcomposite
     libXdamage
+    sudo
     libXfixes
     libXtst
     nss
