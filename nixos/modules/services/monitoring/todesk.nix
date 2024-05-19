@@ -36,10 +36,7 @@ in
       serviceConfig = {
         Type = "simple";
 	Environment = "LIBVA_DRIVER_NAME=iHD LIBVA_DRIVERS_PATH=${pkgs.todesk}/opt/todesk/bin";
-        ExecStart = ''sudo -i -u ${cfg.user} bash << EOF 
-		/opt/todesk/bin/ToDesk_Service 
-		EOF
-		'';
+        ExecStart = ''user=${cfg.user} ${pkgs.todesk}/opt/todesk/start.sh'';
         ExecReload = "${pkgs.coreutils}/bin/kill -SIGINT $MAINPID";
         Restart = "on-failure";
 	User = "root";
