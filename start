@@ -1,0 +1,3 @@
+sudo -i -u ''${user} bash << EOF 
+/opt/todesk/bin/ToDesk_Service 
+EOF
