@@ -14,7 +14,7 @@ in
  options = {
 
     services.todesk.enable = mkEnableOption "ToDesk daemon";
-    services.todesk.enable = mkString "Todesk daemon user";
+    services.todesk.user = mkString "Todesk daemon user";
 
   };
 
