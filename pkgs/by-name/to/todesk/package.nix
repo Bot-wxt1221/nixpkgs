@@ -78,6 +78,7 @@ stdenv.mkDerivation rec {
       --replace '/opt/todesk' \
         "$out/opt/todesk"
     echo -e 'sudo -i -u ''\''$user bash << EOF \n/opt/todesk/bin/ToDesk_Service \nEOF' > $out/opt/todesk/start.sh
+    chmod +x $out/opt/todesk/start.sh
     runHook postInstall
   '';
 
