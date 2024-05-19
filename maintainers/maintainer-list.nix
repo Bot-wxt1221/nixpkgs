@@ -3207,6 +3207,16 @@
     githubId = 3212452;
     name = "Cameron Nemo";
   };
+  cameronraysmith = {
+    email = "cameronraysmith@gmail.com";
+    matrix = "@cameronraysmith:matrix.org";
+    github = "cameronraysmith";
+    githubId = 420942;
+    name = "Cameron Smith";
+    keys = [{
+      fingerprint = "3F14 C258 856E 88AE E0F9  661E FF04 3B36 8811 DD1C";
+    }];
+  };
   camillemndn = {
     email = "camillemondon@free.fr";
     github = "camillemndn";
@@ -14985,6 +14995,13 @@
     email = "nyawox.git@gmail.com";
     github = "nyawox";
     githubId = 93813719;
+  };
+  nydragon = {
+    name = "nydragon";
+    github = "nydragon";
+    email = "nix@ccnlc.eu";
+    githubId = 56591727;
+    keys = [ { fingerprint = "25FF 8464 F062 7EC0 0129 6A43 14AA 30A8 65EA 1209"; } ];
   };
   nzbr = {
     email = "nixos@nzbr.de";
