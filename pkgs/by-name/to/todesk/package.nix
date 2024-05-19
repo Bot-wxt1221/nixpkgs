@@ -14,6 +14,7 @@
 , libXrandr
 , glibc
 , libdrm
+, coreutils
 , libGL
 , libXcomposite
 , libXdamage
