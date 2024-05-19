@@ -1,6 +1,6 @@
 { stdenv
 , lib
-, fetchurl
+, requireFile
 , dpkg
 , autoPatchelfHook
 , makeWrapper
