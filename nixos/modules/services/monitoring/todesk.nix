@@ -38,6 +38,7 @@ in
         ExecStart = "/var/lib/ToDesk_Service";
         ExecReload = "${pkgs.coreutils}/bin/kill -SIGINT $MAINPID";
         Restart = "on-failure";
+	User = cfg.user;
       };
     };
   };
