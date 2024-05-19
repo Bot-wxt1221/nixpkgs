@@ -23,7 +23,6 @@
 , nss
 , libXxf86vm
 , gtk3
-, coreutils
 , gdk-pixbuf
 , pango
 , appindicator-sharp
