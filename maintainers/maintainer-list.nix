@@ -8584,6 +8584,12 @@
     githubId = 1550265;
     name = "Dominic Steinitz";
   };
+  ifd3f = {
+    github = "ifd3f";
+    githubId = 7308591;
+    email = "astrid@astrid.tech";
+    name = "ifd3f";
+  };
   iFreilicht = {
     github = "iFreilicht";
     githubId = 9742635;
@@ -21615,6 +21621,12 @@
     github = "vrinek";
     name = "Kostas Karachalios";
     githubId = 81346;
+  };
+  vringar = {
+    email = "git@zabka.it";
+    github = "vringar";
+    name = "Stefan Zabka";
+    githubId = 13276717;
   };
   vrthra = {
     email = "rahul@gopinath.org";
