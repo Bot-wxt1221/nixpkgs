@@ -29,13 +29,15 @@
 , appindicator-sharp
 }:
 
-stdenv.mkDerivation rec {
+stdenv.mkDerivation finalAttrs {
   pname = "todesk";
   version = "4.7.2.0";
 
-  src = requireFile {
+  src = fetchurl {
     url = "https://dl.todesk.com/linux/todesk-v${version}-amd64.deb";
-    sha256 = "sha256-v7VpXXFVaKI99RpzUWfAc6eE7NHGJeFrNeUTbVuX+yg=";
+    hash = "sha256-v7VpXXFVaKI99RpzUWfAc6eE7NHGJeFrNeUTbVuX+yg=";
+    # Pretend to be a browser to circumvent redirect script
+    curlOptsList = [ "--user-agent" "Mozilla/5.0" ]; 
   };
 
   nativeBuildInputs = [ dpkg autoPatchelfHook ];
@@ -73,26 +75,23 @@ stdenv.mkDerivation rec {
 
   installPhase = ''
     runHook preInstall
-    mkdir -p "$out"
-    cp -r todesk-src/* "$out"
-    mkdir "$out/share"
-    mkdir "$out/share/applications"
+    mkdir -p $out/share/applications
+    cp -r todesk-src/* $out
     mv $out/usr/share/applications/todesk.desktop $out/share/applications
      substituteInPlace "$out/share/applications/todesk.desktop" \
-      --replace '/opt/todesk' \
-        "$out/opt/todesk"
+      --replace '/opt/todesk' "$out/opt/todesk"
     echo -e '#!$/bin/sh\nsudo -i -u ''\''$Tuser sh << EOF \n/opt/todesk/bin/ToDesk_Service \nEOF' > $out/opt/todesk/start.sh
     chmod +x $out/opt/todesk/start.sh
     runHook postInstall
   '';
 
-  meta = with lib; {
-    description = "A Remote Desktop Application";
-    homepage = "https://www.todesk.com/linux.html";
-    license = licenses.unfree;
-    platforms = with platforms; [ "x86_64-linux" ];
-    sourceProvenance = with sourceTypes; [ binaryNativeCode ];
-    maintainers = with maintainers; [ bot-wxt1221 ];
-    mainProgram = "ToDesk";
+  meta = {
+    lib.description = "A Remote Desktop Application";
+    lib.homepage = "https://www.todesk.com/linux.html";
+    lib.license = licenses.unfree;
+    lib.platforms = with platforms; [ "x86_64-linux" ];
+    lib.sourceProvenance = with sourceTypes; [ binaryNativeCode ];
+    lib.maintainers = with maintainers; [ bot-wxt1221 ];
+    lib.mainProgram = "ToDesk";
   };
 }
