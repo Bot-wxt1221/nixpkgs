@@ -8556,6 +8556,10 @@ with pkgs;
 
   gparted = callPackage ../tools/misc/gparted { };
 
+  gpt4all-cuda = gpt4all.override {
+    cudaSupport = true;
+  };
+
   gpt2tc = callPackage ../tools/text/gpt2tc { };
 
   gptcommit = callPackage ../development/tools/gptcommit {
@@ -16093,8 +16097,6 @@ with pkgs;
   openjdk17_headless = javaPackages.compiler.openjdk17.headless;
   jdk17 = openjdk17;
   jdk17_headless = openjdk17_headless;
-
-  openjdk16-bootstrap = javaPackages.compiler.openjdk16-bootstrap;
 
   openjdk19 = javaPackages.compiler.openjdk19;
   openjdk19_headless = javaPackages.compiler.openjdk19.headless;
@@ -34507,13 +34509,7 @@ with pkgs;
 
   psst = callPackage ../applications/audio/psst { };
 
-  squeezelite = darwin.apple_sdk_11_0.callPackage ../applications/audio/squeezelite {
-    inherit (darwin.apple_sdk_11_0.frameworks) CoreVideo VideoDecodeAcceleration CoreAudio AudioToolbox AudioUnit Carbon;
-  };
-
-  squeezelite-pulse = darwin.apple_sdk_11_0.callPackage ../applications/audio/squeezelite {
-    inherit (darwin.apple_sdk_11_0.frameworks) CoreVideo VideoDecodeAcceleration CoreAudio AudioToolbox AudioUnit Carbon;
-
+  squeezelite-pulse = callPackage ../by-name/sq/squeezelite/package.nix {
     audioBackend = "pulse";
   };
 
