@@ -6,7 +6,7 @@
 , ... } @ args:
 
 let
-  version = "6.9.1-rt5"; # updated by ./update-rt.sh
+  version = "6.9.2-rt5"; # updated by ./update-rt.sh
   branch = lib.versions.majorMinor version;
   kversion = builtins.elemAt (lib.splitString "-" version) 0;
 in buildLinux (args // {
@@ -17,7 +17,7 @@ in buildLinux (args // {
     else lib.replaceStrings ["-"] [".0-"] version;
 
   src = fetchurl {
-    url = "https://github.com/Bot-wxt1221/linux/archive/refs/tags/6.9.1.tar.gz";
+    url = "https://github.com/Bot-wxt1221/linux/archive/refs/tags/6.9.2-rt5.tar.gz";
     sha256 = "sha256-yPct/UAlVP01ut3yvf5du5mwK3fpK9DQ9BBX5YmjH+Y=";
   };
 
