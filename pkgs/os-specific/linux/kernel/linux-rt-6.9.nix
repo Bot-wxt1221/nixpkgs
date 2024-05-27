@@ -18,7 +18,7 @@ in buildLinux (args // {
 
   src = fetchurl {
     url = "https://github.com/Bot-wxt1221/linux/archive/refs/tags/6.9.2-rt5.tar.gz";
-    sha256 = "sha256-yPct/UAlVP01ut3yvf5du5mwK3fpK9DQ9BBX5YmjH+Y=";
+    sha256 = "sha256-uHwjh5lkURmll6GADvdzEoq8vRvLPhI8JOUZS6LmRPU=";
   };
 
   structuredExtraConfig = with lib.kernel; {
