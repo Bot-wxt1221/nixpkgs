@@ -272,6 +272,12 @@
     githubId = 381298;
     name = "9R";
   };
+  _9yokuro = {
+    email = "xzstd099@protonmail.com";
+    github = "9yokuro";
+    githubId = 119095935;
+    name = "9yokuro";
+  };
   A1ca7raz = {
     email = "aya@wtm.moe";
     github = "A1ca7raz";
@@ -1168,11 +1174,29 @@
     githubId = 858965;
     name = "Andrew Morsillo";
   };
+  amyipdev = {
+    email = "amy@amyip.net";
+    github = "amyipdev";
+    githubId = 46307646;
+    name = "Amy Parker";
+    keys = [{
+      fingerprint = "7786 034B D521 49F5 1B0A  2A14 B112 2F04 E962 DDC5";
+    }];
+  };
   amz-x = {
     email = "mail@amz-x.com";
     github = "amz-x";
     githubId = 18249234;
     name = "Christopher Crouse";
+  };
+  anas = {
+    email = "anas.elgarhy.dev@gmail.com";
+    github = "0x61nas";
+    githubId = 44965145;
+    name = "Anas Elgarhy";
+    keys = [{
+      fingerprint = "E10B D192 9231 08C7 3C35 7EC3 83E0 3DC6 F383 4086";
+    }];
   };
   AnatolyPopov = {
     email = "aipopov@live.ru";
@@ -1882,6 +1906,12 @@
       fingerprint = "BF47 81E1 F304 1ADF 18CE  C401 DE16 C7D1 536D A72F";
     }];
   };
+  astronaut0212 = {
+    email = "goatastronaut0212@proton.me";
+    github = "goatastronaut0212";
+    githubId = 119769817;
+    name = "goatastronaut0212";
+  };
   astsmtl = {
     email = "astsmtl@yandex.ru";
     github = "astsmtl";
@@ -2034,6 +2064,12 @@
     github = "Avaq";
     githubId = 1217745;
     name = "Aldwin Vlasblom";
+  };
+  aveltras = {
+    email = "romain.viallard@outlook.fr";
+    github = "aveltras";
+    githubId = 790607;
+    name = "Romain Viallard";
   };
   averagebit = {
     email = "averagebit@pm.me";
@@ -3813,6 +3849,15 @@
     github = "clacke";
     githubId = 199180;
     name = "Claes Wallin";
+  };
+  clebs = {
+    email = "borja.clemente@gmail.com";
+    github = "clebs";
+    githubId = 1059661;
+    name = "Borja Clemente";
+    keys = [{
+      fingerprint = "C4E1 58BD FD33 3C77 B6C7  178E 2539 757E F64C 60DD";
+    }];
   };
   cleeyv = {
     email = "cleeyv@riseup.net";
@@ -9382,6 +9427,12 @@
     githubId = 2377;
     name = "Jonathan del Strother";
   };
+  jdev082 = {
+    email = "jdev0894@gmail.com";
+    github = "jdev082";
+    githubId = 92550746;
+    name = "jdev082";
+  };
   jdreaver = {
     email = "johndreaver@gmail.com";
     github = "jdreaver";
@@ -10195,7 +10246,7 @@
     githubId = 27734541;
   };
   jtbx = {
-    email = "jtbx@duck.com";
+    email = "jeremy@baxters.nz";
     name = "Jeremy Baxter";
     github = "jtbx";
     githubId = 92071952;
@@ -12894,6 +12945,12 @@
     keys = [{
       fingerprint = "1DE4 424D BF77 1192 5DC4  CF5E 9AED 8814 81D8 444E";
     }];
+  };
+  maxstrid = {
+    email = "mxwhenderson@gmail.com";
+    github = "maxstrid";
+    githubId = 115441224;
+    name = "Maxwell Henderson";
   };
   maxux = {
     email = "root@maxux.net";
@@ -16714,6 +16771,12 @@
     github = "PhilippWoelfel";
     githubId = 19400064;
   };
+  pyle = {
+    name = "Adam Pyle";
+    email = "adam@pyle.dev";
+    github = "pyle";
+    githubId = 7279609;
+  };
   pyrolagus = {
     email = "pyrolagus@gmail.com";
     github = "PyroLagus";
@@ -19777,12 +19840,6 @@
     githubId = 36031171;
     name = "Supa";
   };
-  superbo = {
-    email = "supernbo@gmail.com";
-    github = "SuperBo";
-    githubId = 2666479;
-    name = "Y Nguyen";
-  };
   superherointj = {
     email = "sergiomarcelo@yandex.com";
     github = "superherointj";
@@ -20824,11 +20881,14 @@
     name = "Tomkoid";
   };
   tomodachi94 = {
-    email = "tomodachi94+nixpkgs@protonmail.com";
+    email = "tomodachi94@protonmail.com";
     matrix = "@tomodachi94:matrix.org";
     github = "tomodachi94";
     githubId = 68489118;
     name = "Tomodachi94";
+    keys = [{
+      fingerprint = "B208 D6E5 B8ED F47D 5687  627B 2E27 5F21 C4D5 54A3";
+    }];
   };
   tomsiewert = {
     email = "tom@siewert.io";
@@ -22910,6 +22970,12 @@
     github = "zimbatm";
     githubId = 3248;
     name = "zimbatm";
+  };
+  zimeg = {
+    email = "zim@o526.net";
+    github = "zimeg";
+    githubId = 18134219;
+    name = "zimeg";
   };
   Zimmi48 = {
     email = "theo.zimmermann@telecom-paris.fr";

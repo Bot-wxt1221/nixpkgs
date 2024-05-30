@@ -4711,6 +4711,8 @@ self: super: with self; {
 
   geocoder = callPackage ../development/python-modules/geocoder { };
 
+  geodatasets = callPackage ../development/python-modules/geodatasets { };
+
   geographiclib = callPackage ../development/python-modules/geographiclib { };
 
   geoip2 = callPackage ../development/python-modules/geoip2 { };
@@ -6499,6 +6501,8 @@ self: super: with self; {
 
   latex2mathml = callPackage ../development/python-modules/latex2mathml { };
 
+  latex2pydata = callPackage ../development/python-modules/latex2pydata { };
+
   latexcodec = callPackage ../development/python-modules/latexcodec { };
 
   latexify-py = callPackage ../development/python-modules/latexify-py { };
@@ -6689,6 +6693,8 @@ self: super: with self; {
   libpurecool = callPackage ../development/python-modules/libpurecool { };
 
   libpyfoscam = callPackage ../development/python-modules/libpyfoscam { };
+
+  libpysal = callPackage ../development/python-modules/libpysal { };
 
   libpyvivotek = callPackage ../development/python-modules/libpyvivotek { };
 
@@ -7169,6 +7175,8 @@ self: super: with self; {
   mapbox = callPackage ../development/python-modules/mapbox { };
 
   mapbox-earcut = callPackage ../development/python-modules/mapbox-earcut { };
+
+  mapclassify = callPackage ../development/python-modules/mapclassify { };
 
   mariadb = callPackage ../development/python-modules/mariadb { };
 
@@ -8963,6 +8971,8 @@ self: super: with self; {
 
   nxt-python = callPackage ../development/python-modules/nxt-python { };
 
+  plugp100 = callPackage ../development/python-modules/plugp100 {};
+
   python-ndn = callPackage ../development/python-modules/python-ndn { };
 
   python-nvd3 = callPackage ../development/python-modules/python-nvd3 { };
@@ -9995,6 +10005,8 @@ self: super: with self; {
   pynws = callPackage ../development/python-modules/pynws { };
 
   pynx584 = callPackage ../development/python-modules/pynx584 { };
+
+  pyogrio = callPackage ../development/python-modules/pyogrio { };
 
   pyorthanc = callPackage ../development/python-modules/pyorthanc { };
 
@@ -11049,8 +11061,6 @@ self: super: with self; {
   pygdbmi = callPackage ../development/python-modules/pygdbmi { };
 
   pygeoip = callPackage ../development/python-modules/pygeoip { };
-
-  pygeos = callPackage ../development/python-modules/pygeos { };
 
   pygetwindow = callPackage ../development/python-modules/pygetwindow { };
 
@@ -12660,6 +12670,8 @@ self: super: with self; {
   pyttsx3 = callPackage ../development/python-modules/pyttsx3 { };
 
   pytube = callPackage ../development/python-modules/pytube { };
+
+  pytubefix = callPackage ../development/python-modules/pytubefix { };
 
   pytun = callPackage ../development/python-modules/pytun { };
 
@@ -16709,6 +16721,8 @@ self: super: with self; {
   vmprof = callPackage ../development/python-modules/vmprof { };
 
   vncdo = callPackage ../development/python-modules/vncdo { };
+
+  vnoise = callPackage ../development/python-modules/vnoise { };
 
   vobject = callPackage ../development/python-modules/vobject { };
 
