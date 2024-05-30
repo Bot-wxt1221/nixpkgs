@@ -3765,6 +3765,15 @@
     github = "ciferkey";
     githubId = 101422;
   };
+  cig0 = {
+    name = "Martín Cigorraga";
+    email = "cig0.github@gmail.com";
+    github = "cig0";
+    githubId = 394089;
+    keys = [{
+      fingerprint = "1828 B459 DB9A 7EE2 03F4 7E6E AFBE ACC5 5D93 84A0";
+    }];
+  };
   cigrainger = {
     name = "Christopher Grainger";
     email = "chris@amplified.ai";
@@ -16053,6 +16062,12 @@
     githubId = 43863;
     name = "Philip Taron";
   };
+  philtaken = {
+    email = "philipp.herzog@protonmail.com";
+    github = "philtaken";
+    githubId = 13309623;
+    name = "Philipp Herzog";
+  };
   phip1611 = {
     email = "phip1611@gmail.com";
     github = "phip1611";
@@ -17767,8 +17782,12 @@
   RossComputerGuy = {
     name = "Tristan Ross";
     email = "tristan.ross@midstall.com";
+    matrix = "@rosscomputerguy:matrix.org";
     github = "RossComputerGuy";
     githubId = 19699320;
+    keys = [{
+      fingerprint = "FD5D F7A8 85BB 378A 0157  5356 B09C 4220 3566 9AF8";
+    }];
   };
   rostan-t = {
     name = "Rostan Tabet";
