@@ -463,6 +463,8 @@ self: super: with self; {
 
   aiozeroconf = callPackage ../development/python-modules/aiozeroconf { };
 
+  aiozoneinfo = callPackage ../development/python-modules/aiozoneinfo { };
+
   airium = callPackage ../development/python-modules/airium { };
 
   airly = callPackage ../development/python-modules/airly { };
@@ -1522,6 +1524,8 @@ self: super: with self; {
   bids-validator = callPackage ../development/python-modules/bids-validator { };
 
   biliass = callPackage ../development/python-modules/biliass { };
+
+  bilibili-api-python = callPackage ../development/python-modules/bilibili-api-python { };
 
   billiard = callPackage ../development/python-modules/billiard { };
 
@@ -4878,6 +4882,8 @@ self: super: with self; {
 
   goodwe = callPackage ../development/python-modules/goodwe { };
 
+  gophish = callPackage ../development/python-modules/gophish { };
+
   google = callPackage ../development/python-modules/google { };
 
   google-ai-generativelanguage = callPackage ../development/python-modules/google-ai-generativelanguage { };
@@ -6946,6 +6952,8 @@ self: super: with self; {
   };
 
   llm = callPackage ../development/python-modules/llm { };
+
+  llmx = callPackage ../development/python-modules/llmx { };
 
   llvmlite = callPackage ../development/python-modules/llvmlite {
     # llvmlite always requires a specific version of llvm.
@@ -12901,6 +12909,8 @@ self: super: with self; {
 
   qrcode = callPackage ../development/python-modules/qrcode { };
 
+  qrcode-terminal = callPackage ../development/python-modules/qrcode-terminal { };
+
   qreactor = callPackage ../development/python-modules/qreactor { };
 
   qscintilla-qt5 = pkgs.libsForQt5.callPackage ../development/python-modules/qscintilla-qt5 {
@@ -14304,6 +14314,8 @@ self: super: with self; {
   sphinx-tabs = callPackage ../development/python-modules/sphinx-tabs { };
 
   sphinx-togglebutton = callPackage ../development/python-modules/sphinx-togglebutton { };
+
+  sphinxawesome-theme = callPackage ../development/python-modules/sphinxawesome-theme { };
 
   sphinxcontrib-actdiag = callPackage ../development/python-modules/sphinxcontrib-actdiag { };
 
@@ -17378,8 +17390,6 @@ self: super: with self; {
   zipfile2 = callPackage ../development/python-modules/zipfile2 { };
 
   zipp = callPackage ../development/python-modules/zipp { };
-
-  zipstream = callPackage ../development/python-modules/zipstream { };
 
   zipstream-ng = callPackage ../development/python-modules/zipstream-ng { };
 

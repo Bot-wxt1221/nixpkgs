@@ -577,6 +577,15 @@
       fingerprint = "51E4 F5AB 1B82 BE45 B422  9CC2 43A5 E25A A5A2 7849";
     }];
   };
+  aduh95 = {
+    email = "duhamelantoine1995@gmail.com";
+    github = "aduh95";
+    githubId = 14309773;
+    name = "Antoine du Hamel";
+    keys = [{
+      fingerprint = "C0D6 2484 39F1 D560 4AAF  FB40 21D9 00FF DB23 3756";
+    }];
+  };
   aerialx = {
     email = "aaron+nixos@aaronlindsay.com";
     github = "AerialX";
@@ -1086,6 +1095,12 @@
       fingerprint = "1F73 8879 5E5A 3DFC E2B3 FA32 87D1 AADC D25B 8DEE";
     }];
   };
+  aman9das = {
+    email = "amandas62640@gmail.com";
+    github = "Aman9das";
+    githubId = 39594914;
+    name = "Aman Das";
+  };
   amanjeev = {
     email = "aj@amanjeev.com";
     github = "amanjeev";
@@ -1173,6 +1188,15 @@
     github = "evelant";
     githubId = 858965;
     name = "Andrew Morsillo";
+  };
+  amyipdev = {
+    email = "amy@amyip.net";
+    github = "amyipdev";
+    githubId = 46307646;
+    name = "Amy Parker";
+    keys = [{
+      fingerprint = "7786 034B D521 49F5 1B0A  2A14 B112 2F04 E962 DDC5";
+    }];
   };
   amz-x = {
     email = "mail@amz-x.com";
@@ -3749,6 +3773,15 @@
     email = "ciferkey@gmail.com";
     github = "ciferkey";
     githubId = 101422;
+  };
+  cig0 = {
+    name = "Martín Cigorraga";
+    email = "cig0.github@gmail.com";
+    github = "cig0";
+    githubId = 394089;
+    keys = [{
+      fingerprint = "1828 B459 DB9A 7EE2 03F4 7E6E AFBE ACC5 5D93 84A0";
+    }];
   };
   cigrainger = {
     name = "Christopher Grainger";
@@ -16038,6 +16071,12 @@
     githubId = 43863;
     name = "Philip Taron";
   };
+  philtaken = {
+    email = "philipp.herzog@protonmail.com";
+    github = "philtaken";
+    githubId = 13309623;
+    name = "Philipp Herzog";
+  };
   phip1611 = {
     email = "phip1611@gmail.com";
     github = "phip1611";
@@ -17752,8 +17791,12 @@
   RossComputerGuy = {
     name = "Tristan Ross";
     email = "tristan.ross@midstall.com";
+    matrix = "@rosscomputerguy:matrix.org";
     github = "RossComputerGuy";
     githubId = 19699320;
+    keys = [{
+      fingerprint = "FD5D F7A8 85BB 378A 0157  5356 B09C 4220 3566 9AF8";
+    }];
   };
   rostan-t = {
     name = "Rostan Tabet";
