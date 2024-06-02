@@ -429,8 +429,6 @@ with pkgs;
 
   catppuccin-papirus-folders = callPackage ../data/icons/catppuccin-papirus-folders { };
 
-  catppuccin-plymouth = callPackage ../data/themes/catppuccin-plymouth { };
-
   btdu = callPackage ../tools/misc/btdu { };
 
   ccal = callPackage ../tools/misc/ccal { };
@@ -13723,7 +13721,7 @@ with pkgs;
 
   trace-cmd = callPackage ../os-specific/linux/trace-cmd { };
 
-  kernelshark = libsForQt5.callPackage ../os-specific/linux/trace-cmd/kernelshark.nix { };
+  kernelshark = qt6Packages.callPackage ../os-specific/linux/trace-cmd/kernelshark.nix { };
 
   traceroute = callPackage ../tools/networking/traceroute { };
 
@@ -29012,7 +29010,7 @@ with pkgs;
 
   poly = callPackage ../data/fonts/poly { };
 
-  polychromatic = libsForQt5.callPackage ../applications/misc/polychromatic { };
+  polychromatic = qt6Packages.callPackage ../applications/misc/polychromatic { };
 
   polytopes_db = callPackage ../data/misc/polytopes_db { };
 
@@ -39133,11 +39131,7 @@ with pkgs;
 
   epson-workforce-635-nx625-series = callPackage ../misc/drivers/epson-workforce-635-nx625-series { };
 
-  foomatic-db = callPackage ../misc/cups/drivers/foomatic-db { };
-  foomatic-db-engine = callPackage ../misc/cups/drivers/foomatic-db-engine { };
-  foomatic-db-nonfree = callPackage ../misc/cups/drivers/foomatic-db-nonfree { };
-  foomatic-db-ppds = callPackage ../misc/cups/drivers/foomatic-db-ppds { };
-  foomatic-db-ppds-withNonfreeDb = callPackage ../misc/cups/drivers/foomatic-db-ppds { withNonfreeDb = true; };
+  foomatic-db-ppds-withNonfreeDb = callPackage ../by-name/fo/foomatic-db-ppds/package.nix { withNonfreeDb = true; };
 
   gutenprint = callPackage ../misc/drivers/gutenprint { };
 
