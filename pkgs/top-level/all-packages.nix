@@ -5623,8 +5623,6 @@ with pkgs;
 
   klog = qt5.callPackage ../applications/radio/klog { };
 
-  knxd = callPackage ../servers/knxd { };
-
   komga = callPackage ../servers/komga { };
 
   komorebi = callPackage ../applications/graphics/komorebi { };
@@ -19160,6 +19158,10 @@ with pkgs;
 
   nexus = callPackage ../development/tools/repository-managers/nexus {
     jre_headless = jre8_headless;
+  };
+
+  nexusmods-app-unfree = callPackage ../by-name/ne/nexusmods-app/package.nix {
+    enableUnfree = true;
   };
 
   nmrpflash = callPackage ../development/embedded/nmrpflash { };
