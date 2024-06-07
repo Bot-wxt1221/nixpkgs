@@ -11,6 +11,7 @@
 , libkrb5
 , libnotify
 , mesa # for libgbm
+, libpulseaudio
 , libGL
 , nss
 , xorg
@@ -57,6 +58,7 @@ stdenv.mkDerivation {
     glib
     gtk3
     libdrm
+    libpulseaudio
     libgcrypt
     libkrb5
     mesa
