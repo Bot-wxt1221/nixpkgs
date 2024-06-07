@@ -3,6 +3,7 @@
 , dpkg
 , fetchurl
 , glib
+, libssh
 , gtk3
 , lib
 , libayatana-appindicator
@@ -84,6 +85,7 @@ stdenv.mkDerivation {
       --replace "/usr/share" "$out/share"
     makeShellWrapper $out/opt/QQ/qq $out/bin/qq \
       --prefix XDG_DATA_DIRS : "$GSETTINGS_SCHEMAS_PATH" \
+      --prefix LD_PRELOAD : "${lib.makeLibraryPath [ libssh ]}" \
       --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath [ libGL ]}" \
       --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform-hint=auto --enable-features=WaylandWindowDecorations}}" \
       --add-flags ${lib.escapeShellArg commandLineArgs} \
