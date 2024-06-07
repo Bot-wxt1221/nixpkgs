@@ -1007,6 +1007,8 @@ self: super: with self; {
 
   autoslot = callPackage ../development/python-modules/autoslot { };
 
+  autotrash = callPackage ../development/python-modules/autotrash { };
+
   avahi = toPythonModule (pkgs.avahi.override {
     inherit python;
     withPython = true;
@@ -2621,6 +2623,8 @@ self: super: with self; {
 
   cstruct = callPackage ../development/python-modules/cstruct { };
 
+  csv2md = callPackage ../development/python-modules/csv2md { };
+
   csvw = callPackage ../development/python-modules/csvw { };
 
   ctap-keyring-device = callPackage ../development/python-modules/ctap-keyring-device { };
@@ -2699,6 +2703,8 @@ self: super: with self; {
   daemonocle = callPackage ../development/python-modules/daemonocle { };
 
   daff = callPackage ../development/python-modules/daff { };
+
+  dahlia = callPackage ../development/python-modules/dahlia { };
 
   daiquiri = callPackage ../development/python-modules/daiquiri { };
 
@@ -3367,8 +3373,6 @@ self: super: with self; {
   django-simple-history = callPackage ../development/python-modules/django-simple-history { };
 
   django-sites = callPackage ../development/python-modules/django-sites { };
-
-  django-sr = callPackage ../development/python-modules/django-sr { };
 
   django-statici18n = callPackage ../development/python-modules/django-statici18n { };
 
@@ -5977,6 +5981,8 @@ self: super: with self; {
 
   iterative-telemetry = callPackage ../development/python-modules/iterative-telemetry { };
 
+  iterfzf = callPackage ../development/python-modules/iterfzf { };
+
   iterm2 = callPackage ../development/python-modules/iterm2 { };
 
   itsdangerous = callPackage ../development/python-modules/itsdangerous { };
@@ -5986,6 +5992,8 @@ self: super: with self; {
   itypes = callPackage ../development/python-modules/itypes { };
 
   iwlib = callPackage ../development/python-modules/iwlib { };
+
+  ixia = callPackage ../development/python-modules/ixia { };
 
   j2cli = callPackage ../development/python-modules/j2cli { };
 
@@ -8896,8 +8904,6 @@ self: super: with self; {
 
   nose-xunitmp = callPackage ../development/python-modules/nose-xunitmp { };
 
-  nosexcover = callPackage ../development/python-modules/nosexcover { };
-
   notebook = callPackage ../development/python-modules/notebook { };
 
   notebook-shim = callPackage ../development/python-modules/notebook-shim { };
@@ -9394,6 +9400,8 @@ self: super: with self; {
 
   outcome = callPackage ../development/python-modules/outcome { };
 
+  outspin = callPackage ../development/python-modules/outspin { };
+
   ovh = callPackage ../development/python-modules/ovh { };
 
   ovmfvartool = callPackage ../development/python-modules/ovmfvartool { };
@@ -9455,6 +9463,8 @@ self: super: with self; {
   panflute = callPackage ../development/python-modules/panflute { };
 
   panphon = callPackage ../development/python-modules/panphon { };
+
+  paperbush = callPackage ../development/python-modules/paperbush { };
 
   papermill = callPackage ../development/python-modules/papermill { };
 
@@ -15101,23 +15111,6 @@ self: super: with self; {
 
   tgcrypto = callPackage ../development/python-modules/tgcrypto { };
 
-  theano-pymc = callPackage ../development/python-modules/theano-pymc { };
-
-  theano = callPackage ../development/python-modules/theano rec {
-    inherit (pkgs.config) cudaSupport;
-    cudnnSupport = cudaSupport;
-  };
-
-  theanoWithCuda = self.theano.override {
-    cudaSupport = true;
-    cudnnSupport = true;
-  };
-
-  theanoWithoutCuda = self.theano.override {
-    cudaSupport = false;
-    cudnnSupport = false;
-  };
-
   thefuzz = callPackage ../development/python-modules/thefuzz { };
 
   thelogrus = callPackage ../development/python-modules/thelogrus { };
@@ -15342,6 +15335,8 @@ self: super: with self; {
   torchrl = callPackage ../development/python-modules/torchrl { };
 
   torchsde = callPackage ../development/python-modules/torchsde { };
+
+  torchsummary = callPackage ../development/python-modules/torchsummary { };
 
   torchvision = callPackage ../development/python-modules/torchvision { };
 
@@ -15582,6 +15577,8 @@ self: super: with self; {
   typepy = callPackage ../development/python-modules/typepy { };
 
   typer = callPackage ../development/python-modules/typer { };
+
+  typer-shell = callPackage ../development/python-modules/typer-shell { };
 
   type-infer = callPackage ../development/python-modules/type-infer { };
 
