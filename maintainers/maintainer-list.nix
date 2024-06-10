@@ -6700,6 +6700,16 @@
     githubId = 9959940;
     name = "Andreas Fehn";
   };
+  felbinger = {
+    name = "Nico Felbinger";
+    email = "nico@felbinger.eu";
+    matrix = "@nico:felbinger.eu";
+    github = "felbinger";
+    githubId = 26925347;
+    keys = [{
+      fingerprint = "0797 D238 9769 CA1E 57B7 2ED9 2BA7 8116 87C9 0DE4";
+    }];
+  };
   felipeqq2 = {
     name = "Felipe Silva";
     email = "nixpkgs@felipeqq2.rocks";
@@ -16985,6 +16995,12 @@
     github = "Qusic";
     githubId = 2141853;
     name = "Bang Lee";
+  };
+  qwqawawow = {
+    email = "eihqnh@outlook.com";
+    github = "qwqawawow";
+    githubId = 40905037;
+    name = "qwqawawow";
   };
   qyliss = {
     email = "hi@alyssa.is";

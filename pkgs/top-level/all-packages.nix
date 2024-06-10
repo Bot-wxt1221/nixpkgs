@@ -28258,8 +28258,6 @@ with pkgs;
 
   brise = callPackage ../data/misc/brise { };
 
-  apl386 = callPackage ../data/fonts/apl386 { };
-
   bqn386 = callPackage ../data/fonts/bqn386 { };
 
   cacert = callPackage ../data/misc/cacert { };
@@ -31257,6 +31255,13 @@ with pkgs;
   );
 
   manuskript = libsForQt5.callPackage ../applications/editors/manuskript { };
+
+  metacubexd = callPackage ../by-name/me/metacubexd/package.nix {
+    pnpm = callPackage ../development/tools/pnpm/generic.nix {
+      version = "9.1.4";
+      hash = "sha256-MKGAGsTnI3ee/tE6IfTDn562yfu0ztEBvOBrQiWT18k=";
+    };
+  };
 
   minari = python3Packages.toPythonApplication python3Packages.minari;
 
@@ -34704,6 +34709,8 @@ with pkgs;
 
   termimage = callPackage ../tools/graphics/termimage { };
 
+  terminaltexteffects = with python3Packages; toPythonApplication terminaltexteffects ;
+
   terminal-notifier = callPackage ../applications/misc/terminal-notifier { };
 
   textplots = callPackage ../tools/graphics/textplots { };
@@ -35800,7 +35807,9 @@ with pkgs;
 
   youtube-dl-light = with python3Packages; toPythonApplication youtube-dl-light;
 
-  youtube-music = callPackage ../applications/audio/youtube-music { pnpm = pnpm_8; };
+  youtube-music = callPackage ../applications/audio/youtube-music {
+    pnpm = pnpm_9;
+  };
 
   youtube-tui = callPackage ../applications/video/youtube-tui {
     inherit (darwin.apple_sdk.frameworks) CoreFoundation Security AppKit;
