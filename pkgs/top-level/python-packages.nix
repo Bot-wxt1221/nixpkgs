@@ -153,8 +153,6 @@ self: super: with self; {
 
   aioairq = callPackage ../development/python-modules/aioairq { };
 
-  aioaladdinconnect = callPackage ../development/python-modules/aioaladdinconnect { };
-
   aioambient = callPackage ../development/python-modules/aioambient { };
 
   aioapcaccess = callPackage ../development/python-modules/aioapcaccess { };
@@ -248,6 +246,8 @@ self: super: with self; {
   aiohttp-cors = callPackage ../development/python-modules/aiohttp-cors { };
 
   aiohttp-fast-url-dispatcher = callPackage ../development/python-modules/aiohttp-fast-url-dispatcher { };
+
+  aiohttp-fast-zlib = callPackage ../development/python-modules/aiohttp-fast-zlib { };
 
   aiohttp-isal = callPackage ../development/python-modules/aiohttp-isal { };
 
@@ -540,8 +540,6 @@ self: super: with self; {
   ambee = callPackage ../development/python-modules/ambee { };
 
   amberelectric = callPackage ../development/python-modules/amberelectric { };
-
-  ambiclimate = callPackage ../development/python-modules/ambiclimate { };
 
   amcrest = callPackage ../development/python-modules/amcrest { };
 
@@ -2571,6 +2569,8 @@ self: super: with self; {
 
   crontab = callPackage ../development/python-modules/crontab { };
 
+  crossandra = callPackage ../development/python-modules/crossandra { };
+
   crossplane = callPackage ../development/python-modules/crossplane { };
 
   crownstone-cloud = callPackage ../development/python-modules/crownstone-cloud { };
@@ -2679,6 +2679,8 @@ self: super: with self; {
   cycler = callPackage ../development/python-modules/cycler { };
 
   cyclonedx-python-lib = callPackage ../development/python-modules/cyclonedx-python-lib { };
+
+  cyclopts = callPackage ../development/python-modules/cyclopts { };
 
   cymem = callPackage ../development/python-modules/cymem { };
 
@@ -4816,6 +4818,8 @@ self: super: with self; {
 
   git-filter-repo = callPackage ../development/python-modules/git-filter-repo { };
 
+  git-find-repos = callPackage ../development/python-modules/git-find-repos { };
+
   git-revise = callPackage ../development/python-modules/git-revise { };
 
   git-sweep = callPackage ../development/python-modules/git-sweep { };
@@ -5293,6 +5297,8 @@ self: super: with self; {
   ha-philipsjs = callPackage ../development/python-modules/ha-philipsjs{ };
 
   hahomematic = callPackage ../development/python-modules/hahomematic { };
+
+  hakuin = callPackage ../development/python-modules/hakuin { };
 
   halo = callPackage ../development/python-modules/halo { };
 
@@ -6487,6 +6493,8 @@ self: super: with self; {
 
   langchain = callPackage ../development/python-modules/langchain { };
 
+  langchain-chroma = callPackage ../development/python-modules/langchain-chroma { };
+
   langchain-community = callPackage ../development/python-modules/langchain-community { };
 
   langchain-core = callPackage ../development/python-modules/langchain-core { };
@@ -6496,6 +6504,8 @@ self: super: with self; {
   langcodes = callPackage ../development/python-modules/langcodes { };
 
   langdetect = callPackage ../development/python-modules/langdetect { };
+
+  langfuse = callPackage ../development/python-modules/langfuse { };
 
   langid = callPackage ../development/python-modules/langid { };
 
@@ -13190,6 +13200,8 @@ self: super: with self; {
 
   repeated-test = callPackage ../development/python-modules/repeated-test { };
 
+  repl-python-wakatime = callPackage ../development/python-modules/repl-python-wakatime { };
+
   repocheck = callPackage ../development/python-modules/repocheck { };
 
   reportengine = callPackage ../development/python-modules/reportengine { };
@@ -16754,6 +16766,8 @@ self: super: with self; {
 
   voluptuous = callPackage ../development/python-modules/voluptuous { };
 
+  voluptuous-openapi = callPackage ../development/python-modules/voluptuous-openapi { };
+
   voluptuous-serialize = callPackage ../development/python-modules/voluptuous-serialize { };
 
   voluptuous-stubs = callPackage ../development/python-modules/voluptuous-stubs { };
@@ -17160,6 +17174,8 @@ self: super: with self; {
   xmod = callPackage ../development/python-modules/xmod { };
 
   xmodem = callPackage ../development/python-modules/xmodem { };
+
+  xmpppy = callPackage ../development/python-modules/xmpppy { };
 
   xnatpy = callPackage ../development/python-modules/xnatpy { };
 

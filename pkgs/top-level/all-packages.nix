@@ -2909,6 +2909,8 @@ with pkgs;
 
   portfolio-filemanager = callPackage ../applications/file-managers/portfolio-filemanager { };
 
+  pot = callPackage ../by-name/po/pot/package.nix { pnpm = pnpm_8; };
+
   potreeconverter = callPackage ../applications/graphics/potreeconverter { };
 
   ranger = callPackage ../applications/file-managers/ranger { };
@@ -3647,6 +3649,8 @@ with pkgs;
   detect-secrets = with python3Packages; toPythonApplication detect-secrets;
 
   deterministic-uname = callPackage ../build-support/deterministic-uname { };
+
+  deterministic-host-uname = deterministic-uname.override { forPlatform = stdenv.hostPlatform; };
 
   dfmt = callPackage ../tools/text/dfmt { };
 
@@ -5057,7 +5061,7 @@ with pkgs;
 
   element-desktop = callPackage ../applications/networking/instant-messengers/element/element-desktop.nix {
     inherit (darwin.apple_sdk.frameworks) Security AppKit CoreServices;
-    electron = electron_29;
+    electron = electron_30;
   };
   element-desktop-wayland = writeScriptBin "element-desktop" ''
     #!/bin/sh
@@ -5620,8 +5624,6 @@ with pkgs;
   klipperscreen = callPackage ../applications/misc/klipperscreen { };
 
   klog = qt5.callPackage ../applications/radio/klog { };
-
-  knxd = callPackage ../servers/knxd { };
 
   komga = callPackage ../servers/komga { };
 
@@ -7408,8 +7410,6 @@ with pkgs;
 
   dt-schema = callPackage ../development/tools/dt-schema { };
 
-  dub = callPackage ../development/tools/build-managers/dub { };
-
   inherit (import ../build-support/dlang/dub-support.nix { inherit callPackage; })
     buildDubPackage dub-to-nix;
 
@@ -8227,8 +8227,6 @@ with pkgs;
   gcfflasher = callPackage ../applications/misc/gcfflasher { };
 
   gdmap = callPackage ../tools/system/gdmap { };
-
-  gdtoolkit = callPackage ../development/tools/gdtoolkit { };
 
   gef = callPackage ../development/tools/misc/gef { };
 
@@ -9620,8 +9618,6 @@ with pkgs;
 
   last-resort = callPackage ../data/fonts/last-resort { };
 
-  ldc = callPackage ../development/compilers/ldc { };
-
   ligo =
     let ocaml_p = ocaml-ng.ocamlPackages_4_14_janeStreet_0_15; in
     callPackage ../development/compilers/ligo {
@@ -10477,8 +10473,6 @@ with pkgs;
   man-db = callPackage ../tools/misc/man-db { };
 
   mandoc = callPackage ../tools/misc/mandoc { };
-
-  mangareader = libsForQt5.callPackage ../applications/graphics/mangareader { };
 
   mangohud = callPackage ../tools/graphics/mangohud {
     libXNVCtrl = linuxPackages.nvidia_x11.settings.libXNVCtrl;
@@ -11894,6 +11888,10 @@ with pkgs;
   pngpp = callPackage ../development/libraries/png++ { };
 
   pngquant = callPackage ../tools/graphics/pngquant { };
+
+  inherit (callPackages ../development/tools/pnpm { })
+    pnpm_8 pnpm_9;
+  pnpm = pnpm_9;
 
   po4a = perlPackages.Po4a;
 
@@ -14078,6 +14076,8 @@ with pkgs;
 
   viking = callPackage ../applications/misc/viking { };
 
+  vikunja = callPackage ../by-name/vi/vikunja/package.nix { pnpm = pnpm_8; };
+
   vim-vint = callPackage ../development/tools/vim-vint { };
 
   vimer = callPackage ../tools/misc/vimer { };
@@ -14126,10 +14126,9 @@ with pkgs;
 
   vpn-slice = python3Packages.callPackage ../tools/networking/vpn-slice { };
 
-  vp = callPackage ../applications/misc/vp {
-    # Enable next line for console graphics. Note that
-    # it requires `sixel` enabled terminals such as mlterm
-    # or xterm -ti 340
+  vpWithSixel = vp.override {
+    # Enable next line for console graphics. Note that it requires `sixel`
+    # enabled terminals such as mlterm or xterm -ti 340
     SDL = SDL_sixel;
   };
 
@@ -17740,7 +17739,7 @@ with pkgs;
 
   guile-reader = callPackage ../development/guile-modules/guile-reader { };
 
-  guile-sdl = callPackage ../development/guile-modules/guile-sdl {
+  guile-sdl = callPackage ../by-name/gu/guile-sdl/package.nix {
     guile = guile_2_2;
   };
 
@@ -19083,7 +19082,7 @@ with pkgs;
 
   python-matter-server = with python3Packages; toPythonApplication (
     python-matter-server.overridePythonAttrs (oldAttrs: {
-      propagatedBuildInputs = oldAttrs.propagatedBuildInputs ++ oldAttrs.passthru.optional-dependencies.server;
+      dependencies = oldAttrs.dependencies ++ oldAttrs.optional-dependencies.server;
     })
   );
 
@@ -19152,6 +19151,10 @@ with pkgs;
 
   nexus = callPackage ../development/tools/repository-managers/nexus {
     jre_headless = jre8_headless;
+  };
+
+  nexusmods-app-unfree = callPackage ../by-name/ne/nexusmods-app/package.nix {
+    enableUnfree = true;
   };
 
   nmrpflash = callPackage ../development/embedded/nmrpflash { };
@@ -20823,7 +20826,7 @@ with pkgs;
   gecode_6 = qt5.callPackage ../development/libraries/gecode { };
   gecode = gecode_6;
 
-  geph = recurseIntoAttrs (callPackages ../applications/networking/geph { });
+  geph = recurseIntoAttrs (callPackages ../applications/networking/geph { pnpm = pnpm_8; });
 
   gephi = callPackage ../applications/science/misc/gephi { };
 
@@ -23654,10 +23657,6 @@ with pkgs;
 
   openpa = callPackage ../development/libraries/openpa { };
 
-  openpgp-card-tools = callPackage ../tools/security/openpgp-card-tools {
-    inherit (darwin.apple_sdk.frameworks) PCSC;
-  };
-
   opensaml-cpp = callPackage ../development/libraries/opensaml-cpp { };
 
   openscenegraph = callPackage ../development/libraries/openscenegraph {
@@ -24186,28 +24185,6 @@ with pkgs;
 
   SDL = SDL_classic;
 
-  SDL_audiolib = callPackage ../development/libraries/SDL_audiolib { };
-
-  SDL_sixel = callPackage ../development/libraries/SDL_sixel { };
-
-  SDL_gfx = callPackage ../development/libraries/SDL_gfx { };
-
-  SDL_gpu = callPackage ../development/libraries/SDL_gpu { };
-
-  SDL_image = callPackage ../development/libraries/SDL_image { };
-
-  SDL_mixer = callPackage ../development/libraries/SDL_mixer { };
-
-  SDL_net = callPackage ../development/libraries/SDL_net { };
-
-  SDL_Pango = callPackage ../development/libraries/SDL_Pango { };
-
-  SDL_sound = callPackage ../development/libraries/SDL_sound { };
-
-  SDL_stretch= callPackage ../development/libraries/SDL_stretch { };
-
-  SDL_ttf = callPackage ../development/libraries/SDL_ttf { };
-
   SDL2 = callPackage ../development/libraries/SDL2 {
     inherit (darwin.apple_sdk.frameworks) AudioUnit Cocoa CoreAudio CoreServices ForceFeedback OpenGL;
   };
@@ -24232,14 +24209,6 @@ with pkgs;
       hash = "sha256-kxyb5b8dfI+um33BV4KLfu6HTiPH8ktEun7/a0g2MSw=";
     };
   });
-
-  SDL2_gfx = callPackage ../development/libraries/SDL2_gfx { };
-
-  SDL2_sound = callPackage ../development/libraries/SDL2_sound {
-    inherit (darwin.apple_sdk.frameworks) AudioToolbox CoreAudio;
-  };
-
-  SDL2_ttf = callPackage ../development/libraries/SDL2_ttf { };
 
   sdrplay = callPackage ../applications/radio/sdrplay { };
 
@@ -24773,6 +24742,8 @@ with pkgs;
 
   vencord-web-extension = callPackage ../by-name/ve/vencord/package.nix { buildWebExtension = true; };
 
+  vesktop = callPackage ../by-name/ve/vesktop/package.nix { pnpm = pnpm_8; };
+
   vid-stab = callPackage ../development/libraries/vid-stab {
     inherit (llvmPackages) openmp;
   };
@@ -25203,6 +25174,10 @@ with pkgs;
   };
 
   leaps = callPackage ../development/tools/leaps { };
+
+  ### DEVELOPMENT / HARE
+
+  hareHook = callPackage ../by-name/ha/hare/hook.nix { };
 
   ### DEVELOPMENT / JAVA MODULES
 
@@ -27704,8 +27679,6 @@ with pkgs;
   pcstat = callPackage ../tools/system/pcstat { };
 
   perf-tools = callPackage ../os-specific/linux/perf-tools { };
-
-  pgrok = callPackage ../tools/networking/pgrok { };
 
   picoprobe-udev-rules = callPackage ../os-specific/linux/picoprobe-udev-rules { };
 
@@ -31395,8 +31368,6 @@ with pkgs;
 
   gpsd = callPackage ../servers/gpsd { };
 
-  gpsprune = callPackage ../applications/misc/gpsprune { };
-
   gpu-screen-recorder = callPackage ../applications/video/gpu-screen-recorder { };
 
   gpu-screen-recorder-gtk = callPackage ../applications/video/gpu-screen-recorder/gpu-screen-recorder-gtk.nix { };
@@ -32040,7 +32011,7 @@ with pkgs;
   inherit (callPackage ../applications/networking/cluster/k3s {
     buildGoModule = buildGo121Module;
     go = go_1_21;
-  }) k3s_1_27 k3s_1_28 k3s_1_29;
+  }) k3s_1_28 k3s_1_29;
   inherit (callPackage ../applications/networking/cluster/k3s {
     buildGoModule = buildGo122Module;
     go = go_1_22;
@@ -32111,6 +32082,8 @@ with pkgs;
   kile = callPackage ../applications/editors/kile { };
 
   kitsas = libsForQt5.callPackage ../applications/office/kitsas { };
+
+  kiwitalk = callPackage ../by-name/ki/kiwitalk/package.nix { pnpm = pnpm_8; };
 
   kiwix = libsForQt5.callPackage ../applications/misc/kiwix { };
 
@@ -35160,7 +35133,7 @@ with pkgs;
   };
 
   virt-manager-qt = libsForQt5.callPackage ../applications/virtualization/virt-manager/qt.nix {
-    qtermwidget = lxqt.qtermwidget;
+    qtermwidget = lxqt.qtermwidget_1_4;
   };
 
   virtscreen = callPackage ../tools/admin/virtscreen { };
@@ -35811,7 +35784,7 @@ with pkgs;
 
   youtube-dl-light = with python3Packages; toPythonApplication youtube-dl-light;
 
-  youtube-music = callPackage ../applications/audio/youtube-music { };
+  youtube-music = callPackage ../applications/audio/youtube-music { pnpm = pnpm_8; };
 
   youtube-tui = callPackage ../applications/video/youtube-tui {
     inherit (darwin.apple_sdk.frameworks) CoreFoundation Security AppKit;
@@ -36474,8 +36447,6 @@ with pkgs;
 
   bsdgames = callPackage ../games/bsdgames { };
 
-  btanks = callPackage ../games/btanks { };
-
   bugdom = callPackage ../games/bugdom {
     stdenv = if stdenv.isDarwin then overrideSDK stdenv "11.0" else stdenv;
     inherit (darwin.apple_sdk_11_0.frameworks) IOKit Foundation OpenGL;
@@ -36982,8 +36953,6 @@ with pkgs;
   nudoku = callPackage ../games/nudoku { };
 
   oilrush = callPackage ../games/oilrush { };
-
-  onscripter-en = callPackage ../games/onscripter-en { };
 
   openarena = callPackage ../games/openarena { };
 

@@ -1310,6 +1310,13 @@
     githubId = 29887;
     name = "Andrew Smith";
   };
+  Andy3153 = {
+    name = "Andrei Dobrete";
+    email = "andy3153@protonmail.com";
+    matrix = "@andy3153:matrix.org";
+    github = "Andy3153";
+    githubId = 53472302;
+  };
   andys8 = {
     github = "andys8";
     githubId = 13085980;
@@ -7418,6 +7425,16 @@
       fingerprint = "386E D1BF 848A BB4A 6B4A  3C45 FC83 907C 125B C2BC";
     }];
   };
+  geoffreyfrogeye = {
+    name = "Geoffrey Frogeye";
+    email = "geoffrey@frogeye.fr";
+    matrix = "@geoffrey:frogeye.fr";
+    github = "GeoffreyFrogeye";
+    githubId = 1685403;
+    keys = [{
+      fingerprint = "4FBA 930D 314A 0321 5E2C  DB0A 8312 C8CA C1BA C289";
+    }];
+  };
   georgesalkhouri = {
     name = "Georges Alkhouri";
     email = "incense.stitch_0w@icloud.com";
@@ -11564,6 +11581,11 @@
     github = "leenaars";
     githubId = 4158274;
     name = "Michiel Leenaars";
+  };
+  legojames = {
+    github = "jrobinson-uk";
+    githubId = 4701504;
+    name = "James Robinson";
   };
   leifhelm = {
     email = "jakob.leifhelm@gmail.com";
