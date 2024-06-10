@@ -17,7 +17,7 @@ stdenv.mkDerivation rec {
     runHook preUnpack
 
     ar x $src
-    tar xf data.tar.xz
+    tar -I zstd -xvf data.tar.zst
 
     runHook postUnpack
   '';
