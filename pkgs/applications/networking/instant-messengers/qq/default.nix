@@ -62,6 +62,7 @@ stdenv.mkDerivation {
     libpulseaudio
     libgcrypt
     libkrb5
+    libssh2
     mesa
     nss
     vips
