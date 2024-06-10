@@ -2144,7 +2144,9 @@ with pkgs;
 
   archi = callPackage ../tools/misc/archi { };
 
-  breitbandmessung = callPackage ../applications/networking/breitbandmessung { };
+  breitbandmessung = callPackage ../applications/networking/breitbandmessung {
+    electron = electron_29;
+  };
 
   ### APPLICATIONS/VERSION-MANAGEMENT
 
@@ -2706,8 +2708,6 @@ with pkgs;
   packwiz = callPackage ../tools/games/minecraft/packwiz { };
 
   pcem = callPackage ../applications/emulators/pcem { };
-
-  pcsx2 = qt6Packages.callPackage ../applications/emulators/pcsx2 { };
 
   pcsxr = callPackage ../applications/emulators/pcsxr { };
 
@@ -17945,6 +17945,10 @@ with pkgs;
 
   ansible-lint = callPackage ../tools/admin/ansible/lint.nix { };
 
+  antares = callPackage ../by-name/an/antares/package.nix {
+    electron = electron_29;
+  };
+
   antlr2 = callPackage ../development/tools/parsing/antlr/2.7.7.nix { };
   antlr3_4 = callPackage ../development/tools/parsing/antlr/3.4.nix { };
   antlr3_5 = callPackage ../development/tools/parsing/antlr/3.5.nix { };
@@ -18014,8 +18018,8 @@ with pkgs;
   electron_28 = if lib.meta.availableOn stdenv.hostPlatform electron-source.electron_28 then electron-source.electron_28 else electron_28-bin;
   electron_29 = if lib.meta.availableOn stdenv.hostPlatform electron-source.electron_29 then electron-source.electron_29 else electron_29-bin;
   electron_30 = if lib.meta.availableOn stdenv.hostPlatform electron-source.electron_30 then electron-source.electron_30 else electron_30-bin;
-  electron = electron_29;
-  electron-bin = electron_29-bin;
+  electron = electron_30;
+  electron-bin = electron_30-bin;
 
   autobuild = callPackage ../development/tools/misc/autobuild { };
 
@@ -20514,8 +20518,6 @@ with pkgs;
   doctest = callPackage ../development/libraries/doctest { };
 
   docopt_cpp = callPackage ../development/libraries/docopt_cpp { };
-
-  docopts = callPackage ../development/tools/misc/docopts { };
 
   dotconf = callPackage ../development/libraries/dotconf { };
 
@@ -26189,7 +26191,9 @@ with pkgs;
     buildGoModule = buildGo122Module;
   };
 
-  mir = callPackage ../servers/mir { };
+  inherit (callPackage ../servers/mir { })
+    mir
+    mir_2_15;
 
   miriway = callPackage ../applications/window-managers/miriway { };
 
@@ -27530,8 +27534,6 @@ with pkgs;
   go-minimock = callPackage ../development/tools/go-minimock { };
 
   go-protobuf = callPackage ../development/tools/go-protobuf { };
-
-  go-symbols = callPackage ../development/tools/go-symbols { };
 
   go-toml = callPackage ../development/tools/go-toml { };
 
