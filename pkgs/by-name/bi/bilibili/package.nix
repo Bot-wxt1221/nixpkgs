@@ -2,6 +2,7 @@
 , stdenv
 , fetchurl
 , electron
+, zstd
 , makeWrapper
 }:
 
@@ -17,7 +18,7 @@ stdenv.mkDerivation rec {
     runHook preUnpack
 
     ar x $src
-    tar -I zstd -xvf data.tar.zst
+    tar -I ${zstd}/bin/zstd -xvf data.tar.zst
 
     runHook postUnpack
   '';
