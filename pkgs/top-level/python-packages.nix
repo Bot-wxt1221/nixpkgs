@@ -2206,6 +2206,8 @@ self: super: with self; {
 
   clf = callPackage ../development/python-modules/clf { };
 
+  cli-ui = callPackage ../development/python-modules/cli-ui { };
+
   clip = callPackage ../development/python-modules/clip { };
 
   clip-anytorch = callPackage ../development/python-modules/clip-anytorch { };
@@ -7048,6 +7050,8 @@ self: super: with self; {
   logster = callPackage ../development/python-modules/logster { };
 
   loguru = callPackage ../development/python-modules/loguru { };
+
+  loguru-logging-intercept = callPackage ../development/python-modules/loguru-logging-intercept { };
 
   logutils = callPackage ../development/python-modules/logutils {
     redis-server = pkgs.redis;

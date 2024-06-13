@@ -1038,6 +1038,16 @@
     githubId = 60479013;
     name = "Alma Cemerlic";
   };
+  alois31 = {
+    name = "Alois Wohlschlager";
+    email = "alois1@gmx-topmail.de";
+    matrix = "@aloisw:kde.org";
+    github = "alois31";
+    githubId = 36605164;
+    keys = [{
+      fingerprint = "CA97 A822 FF24 25D4 74AF  3E4B E0F5 9EA5 E521 6914";
+    }];
+  };
   Alper-Celik = {
     email = "alper@alper-celik.dev";
     name = "Alper Çelik";
@@ -16343,6 +16353,12 @@
     githubId = 4622652;
     name = "Pedro Magalhães";
   };
+  pjungkamp = {
+    email = "philipp@jungkamp.dev";
+    github = "PJungkamp";
+    githubId = 56401138;
+    name = "Philipp Jungkamp";
+  };
   pkharvey = {
     email = "kayharvey@protonmail.com";
     github = "pkharvey";
@@ -19268,6 +19284,11 @@
     github = "slam-bert";
     githubId = 106779009;
     name = "Slambert";
+  };
+  slashformotion = {
+    github = "slashformotion";
+    githubId = 45801817;
+    name = "slashformotion";
   };
   slbtty = {
     email = "shenlebantongying@gmail.com";
