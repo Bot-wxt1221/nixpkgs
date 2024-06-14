@@ -17,7 +17,7 @@ in
 
   ###### implementation
 
-  config = lib.mkIf (lib.cfg.enable) {
+  config = lib.mkIf (cfg.enable) {
 
     environment.systemPackages = [ pkgs.todesk ];
 
