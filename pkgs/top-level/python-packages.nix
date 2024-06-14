@@ -2206,6 +2206,8 @@ self: super: with self; {
 
   clf = callPackage ../development/python-modules/clf { };
 
+  cli-ui = callPackage ../development/python-modules/cli-ui { };
+
   clip = callPackage ../development/python-modules/clip { };
 
   clip-anytorch = callPackage ../development/python-modules/clip-anytorch { };
@@ -3481,8 +3483,6 @@ self: super: with self; {
   dockerpty = callPackage ../development/python-modules/dockerpty { };
 
   docker-pycreds = callPackage ../development/python-modules/docker-pycreds { };
-
-  docker-py = callPackage ../development/python-modules/docker-py { };
 
   dockerspawner = callPackage ../development/python-modules/dockerspawner { };
 
@@ -7050,6 +7050,8 @@ self: super: with self; {
   logster = callPackage ../development/python-modules/logster { };
 
   loguru = callPackage ../development/python-modules/loguru { };
+
+  loguru-logging-intercept = callPackage ../development/python-modules/loguru-logging-intercept { };
 
   logutils = callPackage ../development/python-modules/logutils {
     redis-server = pkgs.redis;
@@ -11561,6 +11563,8 @@ self: super: with self; {
   pyopenssl = callPackage ../development/python-modules/pyopenssl { };
 
   pyopenuv = callPackage ../development/python-modules/pyopenuv { };
+
+  pyopenweathermap = callPackage ../development/python-modules/pyopenweathermap { };
 
   pyopnsense = callPackage ../development/python-modules/pyopnsense { };
 
@@ -16473,6 +16477,8 @@ self: super: with self; {
   };
 
   uhi = callPackage ../development/python-modules/uhi { };
+
+  uiprotect = callPackage ../development/python-modules/uiprotect { };
 
   ujson = callPackage ../development/python-modules/ujson { };
 
