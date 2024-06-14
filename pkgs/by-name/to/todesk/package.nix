@@ -2,21 +2,24 @@
 , lib
 , fetchurl
 , dpkg
+, coreutils-full
 , autoPatchelfHook
 , makeWrapper
-, sudo
 , gzip
 , gnutar
 , nspr
 , kmod
 , systemdMinimal
 , glib
+, bubblewrap
+, makeShellWrapper
 , libX11
 , libXrandr
 , glibc
 , libdrm
 , coreutils
 , libGL
+, bash
 , libXcomposite
 , libXdamage
 , libXfixes
@@ -35,8 +38,8 @@ stdenv.mkDerivation rec {
 
   src = fetchurl {
     url = "https://dl.todesk.com/linux/todesk-v${version}-amd64.deb";
-    sha256 = "sha256-u+aRKXVheyb2NTVmtpLwfxMyuNVOeklTYEvf7L7miVk=";
-    curlOptsList = [ "--user-agent" "Mozilla/5.0" ]; 
+    sha256 = "sha256-v7VpXXFVaKI99RpzUWfAc6eE7NHGJeFrNeUTbVuX+yg=";
+    curlOptsList = [ "--user-agent" "Mozilla/5.0" ];
   };
 
   nativeBuildInputs = [ dpkg autoPatchelfHook ];
@@ -45,15 +48,16 @@ stdenv.mkDerivation rec {
     kmod
     systemdMinimal
     glib
+    bash
     coreutils
     libX11
     libXrandr
     glibc
     libdrm
     libGL
+    makeShellWrapper
     libXcomposite
     libXdamage
-    sudo
     libXfixes
     libXtst
     nss
@@ -76,11 +80,54 @@ stdenv.mkDerivation rec {
     runHook preInstall
     mkdir -p "$out"
     cp -r todesk-src/* "$out"
+    echo "#! ${bash}/bin/bash -e" > "$out/opt/todesk/bin/ToDesk-Wrap"
+    echo "if [ ! -d /opt/todesk ]; then">> "$out/opt/todesk/bin/ToDesk-Wrap"
+    echo "mkdir /opt/todesk" >> "$out/opt/todesk/bin/ToDesk-Wrap"
+    echo "fi">> "$out/opt/todesk/bin/ToDesk-Wrap"
+    echo "${bubblewrap}/bin/bwrap --dev /dev --ro-bind /nix/store /nix/store --bind $out/opt/todesk/bin /opt/todesk/bin --ro-bind $out/opt/todesk/res /opt/todesk/res --bind /opt/todesk /opt/todesk/config --dev /dev \
+                --dev-bind /dev/dri /dev/dri \
+                --dev-bind /dev/shm /dev/shm \
+                --tmpfs /sys --tmpfs /tmp\
+                --ro-bind /sys/dev/char /sys/dev/char \
+                --ro-bind /sys/devices /sys/devices \
+                --proc /proc \
+                --dir /sandbox \
+                --bind /usr /usr \
+                --ro-bind /etc /etc \
+                --symlink usr/lib /lib \
+                --symlink usr/lib64 /lib64 \
+                --symlink usr/bin /bin \
+                --symlink usr/bin /sbin \
+                --ro-bind-try \$XAUTHORITY \$XAUTHORITY /opt/todesk/bin/ToDesk  ">> "$out/opt/todesk/bin/ToDesk-Wrap"
+    chmod +x "$out/opt/todesk/bin/ToDesk-Wrap"
+    echo "#! ${bash}/bin/bash -e" > "$out/opt/todesk/bin/ToDeskService-Wrap"
+    echo "if [ ! -d /opt/todesk ]; then">> "$out/opt/todesk/bin/ToDeskService-Wrap"
+    echo "mkdir /opt/todesk" >> "$out/opt/todesk/bin/ToDeskService-Wrap"
+    echo "fi">> "$out/opt/todesk/bin/ToDeskService-Wrap"
+    echo "${bubblewrap}/bin/bwrap --dev /dev --ro-bind /nix/store /nix/store --bind $out/opt/todesk/bin /opt/todesk/bin --ro-bind $out/opt/todesk/res /opt/todesk/res --bind /opt/todesk /opt/todesk/config --dev /dev \
+                --dev-bind /dev/dri /dev/dri \
+                --dev-bind /dev/shm /dev/shm \
+                --tmpfs /sys --tmpfs /tmp\
+                --ro-bind /sys/dev/char /sys/dev/char \
+                --ro-bind /sys/devices /sys/devices \
+                --proc /proc \
+                --dir /sandbox \
+                --bind /usr /usr \
+                --ro-bind /etc /etc \
+                --symlink usr/lib /lib \
+                --symlink usr/lib64 /lib64 \
+                --symlink usr/bin /bin \
+                --symlink usr/bin /sbin \
+                --ro-bind-try \$XAUTHORITY \$XAUTHORITY /opt/todesk/bin/ToDesk_Service  ">> "$out/opt/todesk/bin/ToDeskService-Wrap"
+
+    chmod +x "$out/opt/todesk/bin/ToDeskService-Wrap"
     mkdir "$out/share"
     mkdir "$out/share/applications"
     mv $out/usr/share/applications/todesk.desktop $out/share/applications
-       substituteInPlace "$out/share/applications/todesk.desktop" \
-    --replace-final '/opt/todesk' "$out/opt/todesk"
+    substituteInPlace "$out/share/applications/todesk.desktop" \
+      --replace '/opt/todesk' "$out/opt/todesk"
+    substituteInPlace "$out/share/applications/todesk.desktop" \
+      --replace '$out/opt/todesk/bin/ToDesk' "$out/opt/todesk/bin/ToDesk-Wrap"
     runHook postInstall
   '';
 
