@@ -12,7 +12,6 @@
 , systemdMinimal
 , glib
 , bubblewrap
-, makeShellWrapper
 , libX11
 , libXrandr
 , glibc
@@ -55,7 +54,6 @@ stdenv.mkDerivation (finalAttrs: {
     glibc
     libdrm
     libGL
-    makeShellWrapper
     libXcomposite
     libXdamage
     libXfixes
