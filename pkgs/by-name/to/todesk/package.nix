@@ -12,7 +12,6 @@
 , systemdMinimal
 , glib
 , bubblewrap
-, makeShellWrapper
 , libX11
 , libXrandr
 , glibc
