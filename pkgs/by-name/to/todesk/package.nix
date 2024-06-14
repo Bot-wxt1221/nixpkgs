@@ -32,12 +32,12 @@
 , appindicator-sharp
 }:
 
-stdenv.mkDerivation rec {
+stdenv.mkDerivation (finalAttrs: {
   pname = "todesk";
   version = "4.7.2.0";
 
   src = fetchurl {
-    url = "https://dl.todesk.com/linux/todesk-v${version}-amd64.deb";
+    url = "https://dl.todesk.com/linux/todesk-v${finalAttrs.version}-amd64.deb";
     sha256 = "sha256-v7VpXXFVaKI99RpzUWfAc6eE7NHGJeFrNeUTbVuX+yg=";
     curlOptsList = [ "--user-agent" "Mozilla/5.0" ];
   };
@@ -131,13 +131,13 @@ stdenv.mkDerivation rec {
     runHook postInstall
   '';
 
-  meta = with lib; {
+  meta = {
     description = "A Remote Desktop Application";
     homepage = "https://www.todesk.com/linux.html";
-    license = licenses.unfree;
-    platforms = with platforms; [ "x86_64-linux" ];
-    sourceProvenance = with sourceTypes; [ binaryNativeCode ];
-    maintainers = with maintainers; [ bot-wxt1221 ];
+    license = lib.licenses.unfree;
+    platforms = with lib.platforms; [ "x86_64-linux" ];
+    sourceProvenance = with lib.sourceTypes; [ binaryNativeCode ];
+    maintainers = with lib.maintainers; [ bot-wxt1221 ];
     mainProgram = "ToDesk";
   };
-}
+})
