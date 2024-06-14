@@ -36,6 +36,7 @@ stdenv.mkDerivation rec {
   src = requireFile {
     url = "https://dl.todesk.com/linux/todesk-v${version}-amd64.deb";
     sha256 = "sha256-v7VpXXFVaKI99RpzUWfAc6eE7NHGJeFrNeUTbVuX+yg=";
+    curlOptsList = [ "--user-agent" "Mozilla/5.0" ]; 
   };
 
   nativeBuildInputs = [ dpkg autoPatchelfHook ];
@@ -78,11 +79,8 @@ stdenv.mkDerivation rec {
     mkdir "$out/share"
     mkdir "$out/share/applications"
     mv $out/usr/share/applications/todesk.desktop $out/share/applications
-     substituteInPlace "$out/share/applications/todesk.desktop" \
-      --replace '/opt/todesk' \
-        "$out/opt/todesk"
-    echo -e '#!$/bin/sh\nsudo -i -u ''\''$Tuser sh << EOF \n/opt/todesk/bin/ToDesk_Service \nEOF' > $out/opt/todesk/start.sh
-    chmod +x $out/opt/todesk/start.sh
+       substituteInPlace "$out/share/applications/todesk.desktop" \
+    --replace-final '/opt/todesk' "$out/opt/todesk"
     runHook postInstall
   '';
 
