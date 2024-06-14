@@ -11,7 +11,7 @@ in
   ###### interface
   options = {
 
-    services.todesk.enable = mkEnableOption "ToDesk daemon";
+    services.todesk.enable = lib.mkEnableOption "ToDesk daemon";
 
   };
 
