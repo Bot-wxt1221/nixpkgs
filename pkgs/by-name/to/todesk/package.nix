@@ -118,7 +118,7 @@ stdenv.mkDerivation rec {
                 --symlink usr/lib64 /lib64 \
                 --symlink usr/bin /bin \
                 --symlink usr/bin /sbin \
-                --ro-bind-try \$XAUTHORITY \$XAUTHORITY /opt/todesk/bin/ToDesk_Service  ">> "$out/opt/todesk/bin/ToDeskService-Wrap"
+                /opt/todesk/bin/ToDesk_Service  ">> "$out/opt/todesk/bin/ToDeskService-Wrap"
 
     chmod +x "$out/opt/todesk/bin/ToDeskService-Wrap"
     mkdir "$out/share"
@@ -127,7 +127,7 @@ stdenv.mkDerivation rec {
     substituteInPlace "$out/share/applications/todesk.desktop" \
       --replace '/opt/todesk' "$out/opt/todesk"
     substituteInPlace "$out/share/applications/todesk.desktop" \
-      --replace '$out/opt/todesk/bin/ToDesk' "$out/opt/todesk/bin/ToDesk-Wrap"
+      --replace "$out/opt/todesk/bin/ToDesk" "$out/opt/todesk/bin/ToDesk-Wrap"
     runHook postInstall
   '';
 

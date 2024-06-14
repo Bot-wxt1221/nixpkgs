@@ -1,7 +1,5 @@
 { config, lib, pkgs, ... }:
 
-with lib;
-
 let
 
   cfg = config.services.todesk;
@@ -11,15 +9,15 @@ in
 {
 
   ###### interface
- options = {
+  options = {
 
-    services.todesk.enable = mkEnableOption "ToDesk daemon";
+    services.todesk.enable = lib.mkEnableOption "ToDesk daemon";
 
   };
 
   ###### implementation
 
-  config = mkIf (cfg.enable) {
+  config = lib.mkIf (cfg.enable) {
 
     environment.systemPackages = [ pkgs.todesk ];
 
@@ -33,11 +31,11 @@ in
       requires = [ "dbus.service" ];
       serviceConfig = {
         Type = "simple";
-	Environment = "LIBVA_DRIVER_NAME=iHD LIBVA_DRIVERS_PATH=${pkgs.todesk}/opt/todesk/bin";
+        Environment = "LIBVA_DRIVER_NAME=iHD LIBVA_DRIVERS_PATH=${pkgs.todesk}/opt/todesk/bin";
         ExecStart = "${pkgs.todesk}/opt/todesk/bin/ToDeskService-Wrap";
         ExecReload = "${pkgs.coreutils}/bin/kill -SIGINT $MAINPID";
         Restart = "on-failure";
-	User = "root";
+        User = "root";
       };
     };
   };
