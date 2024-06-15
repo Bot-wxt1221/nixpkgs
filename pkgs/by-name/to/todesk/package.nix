@@ -90,9 +90,11 @@ stdenv.mkDerivation (finalAttrs: {
                 --ro-bind /sys/devices /sys/devices \
                 --proc /proc \
                 --dir /sandbox \
+		--bind /run /run \
                 --bind /usr /usr \
                 --ro-bind /etc /etc \
                 --symlink usr/lib /lib \
+                --bind /home /home \
                 --symlink usr/lib64 /lib64 \
                 --symlink usr/bin /bin \
                 --symlink usr/bin /sbin \
@@ -112,7 +114,9 @@ stdenv.mkDerivation (finalAttrs: {
                 --dir /sandbox \
                 --bind /usr /usr \
                 --ro-bind /etc /etc \
+                --bind /home /home \
                 --symlink usr/lib /lib \
+		--bind /run /run \
                 --symlink usr/lib64 /lib64 \
                 --symlink usr/bin /bin \
                 --symlink usr/bin /sbin \
