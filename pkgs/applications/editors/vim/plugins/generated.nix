@@ -7446,9 +7446,9 @@ final: prev:
     pname = "nvchad";
     version = "2024-06-06";
     src = fetchFromGitHub {
-      owner = "nvchad";
-      repo = "nvchad";
-      rev = "164e8cc7fcb9006a1edd4ddfc98bf8c7f4fe2e0d";
+      owner = "Bot-wxt1221";
+      repo = "Bot-wxt1221-NvChad";
+      rev = "8fcb94dd2a59c9f8ae19f9c473732fd2da2407d4";
       sha256 = "1qk0m5z5jqv875q96mavmbnpd8570d9xzr928izj807660r3b0p3";
     };
     meta.homepage = "https://github.com/nvchad/nvchad/";
