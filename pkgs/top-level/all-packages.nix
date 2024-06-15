@@ -20566,8 +20566,6 @@ with pkgs;
 
   entt = callPackage ../development/libraries/entt { };
 
-  epoll-shim = callPackage ../development/libraries/epoll-shim { };
-
   libepoxy = callPackage ../development/libraries/libepoxy {
     inherit (darwin.apple_sdk.frameworks) Carbon OpenGL;
   };
@@ -33326,7 +33324,7 @@ with pkgs;
     inherit (darwin.apple_sdk.frameworks) AppKit Cocoa Foundation;
   };
 
-  nheko = libsForQt5.callPackage ../applications/networking/instant-messengers/nheko { };
+  nheko = qt6Packages.callPackage ../applications/networking/instant-messengers/nheko { };
 
   notepad-next = libsForQt5.callPackage ../applications/editors/notepad-next { };
 
@@ -35073,8 +35071,6 @@ with pkgs;
   };
 
   qpdfview = libsForQt5.callPackage ../applications/office/qpdfview { };
-
-  qtile = callPackage ../development/python-modules/qtile/wrapper.nix { };
 
   vimgolf = callPackage ../games/vimgolf { };
 
