@@ -7449,7 +7449,7 @@ final: prev:
       owner = "Bot-wxt1221";
       repo = "Bot-wxt1221-NvChad";
       rev = "8fcb94dd2a59c9f8ae19f9c473732fd2da2407d4";
-      sha256 = "1h4ap13q85vy7mz44z1q8wzzvs7arbafkml9nwfx5vhyfyw4c8s2";
+      sha256 = "sha256-wDEEu1a1oi46no1IJLEnz6u/KauB9XP/y8vQ2wVhA20=";
     };
     meta.homepage = "https://github.com/nvchad/nvchad/";
   };
