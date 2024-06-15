@@ -36,7 +36,7 @@ stdenv.mkDerivation (finalAttrs: {
   version = "4.7.2.0";
 
   src = fetchurl {
-    url = "https://dl.todesk.com/linux/todesk-v${finalAttrs.version}-amd64.deb";
+    url = "https://newdl.todesk.com/linux/todesk-v${finalAttrs.version}-amd64.deb";
     sha256 = "sha256-v7VpXXFVaKI99RpzUWfAc6eE7NHGJeFrNeUTbVuX+yg=";
     curlOptsList = [ "--user-agent" "Mozilla/5.0" ];
   };
