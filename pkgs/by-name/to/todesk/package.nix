@@ -54,7 +54,6 @@ stdenv.mkDerivation (finalAttrs: {
     glibc
     libdrm
     libGL
-    makeShellWrapper
     libXcomposite
     libXdamage
     libXfixes
