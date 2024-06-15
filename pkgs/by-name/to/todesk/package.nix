@@ -121,7 +121,9 @@ stdenv.mkDerivation (finalAttrs: {
     chmod +x "$out/opt/todesk/bin/ToDeskService-Wrap"
     mkdir "$out/share"
     mkdir "$out/share/applications"
+    mkdir "$out/share/icons"
     mv $out/usr/share/applications/todesk.desktop $out/share/applications
+    cp -rf $out/usr/share/icons/* $out/share/icons
     substituteInPlace "$out/share/applications/todesk.desktop" \
       --replace '/opt/todesk' "$out/opt/todesk"
     substituteInPlace "$out/share/applications/todesk.desktop" \
