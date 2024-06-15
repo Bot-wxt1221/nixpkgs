@@ -79,10 +79,10 @@ stdenv.mkDerivation (finalAttrs: {
     mkdir -p "$out"
     cp -r todesk-src/* "$out"
     echo "#! ${bash}/bin/bash -e" > "$out/opt/todesk/bin/ToDesk-Wrap"
-    echo "if [ ! -d /opt/todesk ]; then">> "$out/opt/todesk/bin/ToDesk-Wrap"
-    echo "mkdir /opt/todesk" >> "$out/opt/todesk/bin/ToDesk-Wrap"
+    echo "if [ ! -d /var/lib/todesk ]; then">> "$out/opt/todesk/bin/ToDesk-Wrap"
+    echo "mkdir /var/lib/todesk" >> "$out/opt/todesk/bin/ToDesk-Wrap"
     echo "fi">> "$out/opt/todesk/bin/ToDesk-Wrap"
-    echo "${bubblewrap}/bin/bwrap --dev /dev --ro-bind /nix/store /nix/store --bind $out/opt/todesk/bin /opt/todesk/bin --ro-bind $out/opt/todesk/res /opt/todesk/res --bind /opt/todesk /opt/todesk/config --dev /dev \
+    echo "${bubblewrap}/bin/bwrap --dev /dev --ro-bind /nix/store /nix/store --bind $out/opt/todesk/bin /opt/todesk/bin --ro-bind $out/opt/todesk/res /opt/todesk/res --bind /var/lib/todesk /opt/todesk/config --dev /dev \
                 --dev-bind /dev/dri /dev/dri \
                 --dev-bind /dev/shm /dev/shm \
                 --tmpfs /sys --tmpfs /tmp\
@@ -99,10 +99,10 @@ stdenv.mkDerivation (finalAttrs: {
                 --ro-bind-try \$XAUTHORITY \$XAUTHORITY /opt/todesk/bin/ToDesk  ">> "$out/opt/todesk/bin/ToDesk-Wrap"
     chmod +x "$out/opt/todesk/bin/ToDesk-Wrap"
     echo "#! ${bash}/bin/bash -e" > "$out/opt/todesk/bin/ToDeskService-Wrap"
-    echo "if [ ! -d /opt/todesk ]; then">> "$out/opt/todesk/bin/ToDeskService-Wrap"
-    echo "mkdir /opt/todesk" >> "$out/opt/todesk/bin/ToDeskService-Wrap"
+    echo "if [ ! -d /var/lib/todesk ]; then">> "$out/opt/todesk/bin/ToDeskService-Wrap"
+    echo "mkdir /var/lib/todesk && chmod 777 /var/lib/todesk" >> "$out/opt/todesk/bin/ToDeskService-Wrap"
     echo "fi">> "$out/opt/todesk/bin/ToDeskService-Wrap"
-    echo "${bubblewrap}/bin/bwrap --dev /dev --ro-bind /nix/store /nix/store --bind $out/opt/todesk/bin /opt/todesk/bin --ro-bind $out/opt/todesk/res /opt/todesk/res --bind /opt/todesk /opt/todesk/config --dev /dev \
+    echo "${bubblewrap}/bin/bwrap --dev /dev --ro-bind /nix/store /nix/store --bind $out/opt/todesk/bin /opt/todesk/bin --ro-bind $out/opt/todesk/res /opt/todesk/res --bind /var/lib/todesk /opt/todesk/config --dev /dev \
                 --dev-bind /dev/dri /dev/dri \
                 --dev-bind /dev/shm /dev/shm \
                 --tmpfs /sys --tmpfs /tmp\
