@@ -6,7 +6,7 @@
 , ... } @ args:
 
 let
-  version = "6.9.4-rt5"; # updated by ./update-rt.sh
+  version = "6.9.5-rt5"; # updated by ./update-rt.sh
   branch = lib.versions.majorMinor version;
   kversion = builtins.elemAt (lib.splitString "-" version) 0;
 in buildLinux (args // {
