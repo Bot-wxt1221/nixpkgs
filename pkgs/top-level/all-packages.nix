@@ -8961,8 +8961,6 @@ with pkgs;
 
   httpie = with python3Packages; toPythonApplication httpie;
 
-  httping = callPackage ../tools/networking/httping { };
-
   httplz = callPackage ../tools/networking/httplz { };
 
   httpfs2 = callPackage ../tools/filesystems/httpfs { };
@@ -32297,12 +32295,10 @@ with pkgs;
   libreoffice-bin = callPackage ../applications/office/libreoffice/darwin { };
 
   libreoffice = hiPrio libreoffice-still;
+  libreoffice-unwrapped = libreoffice.unwrapped;
 
   libreoffice-qt = hiPrio libreoffice-qt-still;
-
   libreoffice-qt-unwrapped = libreoffice-qt.unwrapped;
-
-  libreoffice-unwrapped = libreoffice.unwrapped;
 
   libreoffice-qt-fresh = lowPrio (callPackage ../applications/office/libreoffice/wrapper.nix {
     unwrapped = libsForQt5.callPackage ../applications/office/libreoffice {
@@ -32319,6 +32315,9 @@ with pkgs;
     };
   });
   libreoffice-qt-still-unwrapped = libreoffice-qt-still.unwrapped;
+
+  libreoffice-qt6 = hiPrio libreoffice-qt6-still;
+  libreoffice-qt6-unwrapped = libreoffice-qt6.unwrapped;
 
   libreoffice-qt6-fresh = lowPrio (callPackage ../applications/office/libreoffice/wrapper.nix {
     unwrapped = kdePackages.callPackage ../applications/office/libreoffice {
