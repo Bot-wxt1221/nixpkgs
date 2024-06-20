@@ -5819,6 +5819,8 @@ self: super: with self; {
 
   inkex = callPackage ../development/python-modules/inkex { };
 
+  inline-snapshot = callPackage ../development/python-modules/inline-snapshot { };
+
   inlinestyler = callPackage ../development/python-modules/inlinestyler { };
 
   inotify = callPackage ../development/python-modules/inotify { };
@@ -10084,6 +10086,8 @@ self: super: with self; {
   pyre-extensions = callPackage ../development/python-modules/pyre-extensions { };
 
   pyrender = callPackage ../development/python-modules/pyrender { };
+
+  pyreqwest-impersonate = callPackage ../development/python-modules/pyreqwest-impersonate { };
 
   pyrevolve = callPackage ../development/python-modules/pyrevolve { };
 
