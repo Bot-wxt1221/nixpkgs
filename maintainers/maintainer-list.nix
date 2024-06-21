@@ -8413,6 +8413,12 @@
     githubId = 7403236;
     name = "Markus J. Ankenbrand";
   };
+  iivusly = {
+    email = "iivusly@icloud.com";
+    github = "iivusly";
+    githubId = 52052910;
+    name = "iivusly";
+  };
   ikervagyok = {
     email = "ikervagyok@gmail.com";
     github = "ikervagyok";
@@ -13425,14 +13431,6 @@
     github = "mogria";
     githubId = 754512;
     name = "Mogria";
-  };
-  mohe2015 = {
-    name = "Moritz Hedtke";
-    email = "Moritz.Hedtke@t-online.de";
-    matrix = "@moritz.hedtke:matrix.org";
-    github = "mohe2015";
-    githubId = 13287984;
-    keys = [ { fingerprint = "1248 D3E1 1D11 4A85 75C9  8934 6794 D45A 488C 2EDE"; } ];
   };
   momeemt = {
     name = "Mutsuha Asada";
@@ -18803,14 +18801,6 @@
     github = "sophrosyne97";
     githubId = 53029739;
     name = "Joshua Ortiz";
-  };
-  Sorixelle = {
-    email = "ruby+nixpkgs@srxl.me";
-    matrix = "@ruby:isincredibly.gay";
-    name = "Ruby Iris Juric";
-    github = "Sorixelle";
-    githubId = 38685302;
-    keys = [ { fingerprint = "2D76 76C7 A28E 16FC 75C7  268D 1B55 6ED8 4B0E 303A"; } ];
   };
   sorki = {
     email = "srk@48.io";
