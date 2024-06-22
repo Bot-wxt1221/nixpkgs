@@ -1,5 +1,6 @@
 { stdenv
 , lib
+, gcc14
 , fetchFromGitHub
 , cmake
 , libuv
@@ -8,7 +9,6 @@
 , hwloc
 , donateLevel ? 0
 , darwin
-, clang
 }:
 
 let
@@ -36,12 +36,10 @@ stdenv.mkDerivation rec {
   '';
 
   nativeBuildInputs = [
-    cmake
+    cmake gcc14
   ];
   cmakeFlags = [
-    "-DCMAKE_CXX_COMPILER=${clang}/bin/clang++"
-    "-DCMAKE_C_COMPILER=${clang}/bin/clang"
-    "-DCMAKE_CXX_FLAGS=\"-O3\""
+    "-DCMAKE_CXX_FLAGS=\"-Ofast\""
   ];
   buildInputs = [
     libuv
