@@ -5530,8 +5530,6 @@ self: super: with self; {
 
   htmldate = callPackage ../development/python-modules/htmldate { };
 
-  htmllaundry = callPackage ../development/python-modules/htmllaundry { };
-
   htmllistparse = callPackage ../development/python-modules/htmllistparse { };
 
   htmlmin = callPackage ../development/python-modules/htmlmin { };
@@ -7298,6 +7296,8 @@ self: super: with self; {
   matchpy = callPackage ../development/python-modules/matchpy { };
 
   mathlibtools = callPackage ../development/python-modules/mathlibtools { };
+
+  mathutils = callPackage ../development/python-modules/mathutils { };
 
   matlink-gpapi = callPackage ../development/python-modules/matlink-gpapi { };
 
@@ -14846,6 +14846,11 @@ self: super: with self; {
 
   syncer = callPackage ../development/python-modules/syncer { };
 
+  syndication-domination = toPythonModule (pkgs.syndication-domination.override {
+    enablePython = true;
+    python3Packages = self;
+  });
+
   synergy = callPackage ../development/python-modules/synergy { };
 
   synologydsm-api = callPackage ../development/python-modules/synologydsm-api { };
@@ -17256,6 +17261,10 @@ self: super: with self; {
   xnatpy = callPackage ../development/python-modules/xnatpy { };
 
   xnd = callPackage ../development/python-modules/xnd { };
+
+  xonsh = toPythonModule (pkgs.xonsh.override {
+    python3Packages = self;
+  });
 
   xpath-expressions = callPackage ../development/python-modules/xpath-expressions { };
 

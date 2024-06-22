@@ -1977,6 +1977,12 @@
     githubId = 12958979;
     name = "Mika Naylor";
   };
+  autra = {
+    email = "augustin.trancart@gmail.com";
+    github = "autra";
+    githubId = 1576598;
+    name = "Augustin Trancart";
+  };
   autrimpo = {
     email = "michal@koutensky.net";
     github = "autrimpo";
@@ -7387,12 +7393,6 @@
     github = "gmacon";
     githubId = 238853;
   };
-  gmemstr = {
-    email = "git@gmem.ca";
-    github = "gmemstr";
-    githubId = 1878840;
-    name = "Gabriel Simmer";
-  };
   gnxlxnxx = {
     email = "gnxlxnxx@web.de";
     github = "gnxlxnxx";
@@ -11309,12 +11309,6 @@
     name = "Leon Vack";
     github = "LogicalOverflow";
     githubId = 5919957;
-  };
-  lheckemann = {
-    email = "git@sphalerite.org";
-    github = "lheckemann";
-    githubId = 341954;
-    name = "Linus Heckemann";
   };
   lhvwb = {
     email = "nathaniel.baxter@gmail.com";
@@ -15808,6 +15802,12 @@
     github = "plabadens";
     githubId = 4303706;
     keys = [ { fingerprint = "B00F E582 FD3F 0732 EA48  3937 F558 14E4 D687 4375"; } ];
+  };
+  pladypus = {
+    name = "Peter Loftus";
+    email = "loftusp5976+nixpkgs@gmail.com";
+    github = "pladypus";
+    githubId = 56337621;
   };
   plchldr = {
     email = "mail@oddco.de";
