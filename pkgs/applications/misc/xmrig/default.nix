@@ -8,6 +8,7 @@
 , hwloc
 , donateLevel ? 0
 , darwin
+, clang
 }:
 
 let
@@ -37,7 +38,11 @@ stdenv.mkDerivation rec {
   nativeBuildInputs = [
     cmake
   ];
-
+  cmakeFlags = [
+    "-DCMAKE_CXX_COMPILER=${clang}/bin/clang++"
+    "-DCMAKE_C_COMPILER=${clang}/bin/clang"
+    "-DCMAKE_CXX_FLAGS=\"-O3\""
+  ];
   buildInputs = [
     libuv
     libmicrohttpd
@@ -61,7 +66,6 @@ stdenv.mkDerivation rec {
 
   # https://github.com/NixOS/nixpkgs/issues/245534
   hardeningDisable = [ "fortify" ];
-
   meta = with lib; {
     description = "Monero (XMR) CPU miner";
     homepage = "https://github.com/xmrig/xmrig";
