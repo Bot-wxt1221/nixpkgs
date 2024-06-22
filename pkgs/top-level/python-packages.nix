@@ -787,9 +787,15 @@ self: super: with self; {
 
   asdf = callPackage ../development/python-modules/asdf { };
 
+  asdf-astropy = callPackage ../development/python-modules/asdf-astropy { };
+
+  asdf-coordinates-schemas = callPackage ../development/python-modules/asdf-coordinates-schemas { };
+
   asdf-standard = callPackage ../development/python-modules/asdf-standard { };
 
   asdf-transform-schemas = callPackage ../development/python-modules/asdf-transform-schemas { };
+
+  asdf-wcs-schemas = callPackage ../development/python-modules/asdf-wcs-schemas { };
 
   ase = callPackage ../development/python-modules/ase { };
 
@@ -3401,6 +3407,8 @@ self: super: with self; {
 
   django-sites = callPackage ../development/python-modules/django-sites { };
 
+  django-soft-delete = callPackage ../development/python-modules/django-soft-delete { };
+
   django-statici18n = callPackage ../development/python-modules/django-statici18n { };
 
   django-storages = callPackage ../development/python-modules/django-storages { };
@@ -4040,6 +4048,8 @@ self: super: with self; {
   exrex = callPackage ../development/python-modules/exrex { };
 
   exitcode = callPackage ../development/python-modules/exitcode { };
+
+  extension-helpers = callPackage ../development/python-modules/extension-helpers { };
 
   extract-msg = callPackage ../development/python-modules/extract-msg { };
 
@@ -5276,6 +5286,8 @@ self: super: with self; {
   gvm-tools = callPackage ../development/python-modules/gvm-tools { };
 
   gviz-api = callPackage ../development/python-modules/gviz-api { };
+
+  gwcs = callPackage ../development/python-modules/gwcs { };
 
   gym = callPackage ../development/python-modules/gym { };
 
@@ -9781,6 +9793,8 @@ self: super: with self; {
   phone-modem = callPackage ../development/python-modules/phone-modem { };
 
   phonenumbers = callPackage ../development/python-modules/phonenumbers { };
+
+  photutils = callPackage ../development/python-modules/photutils { };
 
   pkgutil-resolve-name = callPackage ../development/python-modules/pkgutil-resolve-name { };
 
