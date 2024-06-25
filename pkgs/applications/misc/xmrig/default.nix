@@ -1,6 +1,6 @@
 { stdenv
 , lib
-, gcc14
+, gcc8
 , fetchFromGitHub
 , cmake
 , libuv
@@ -36,7 +36,7 @@ stdenv.mkDerivation rec {
   '';
 
   nativeBuildInputs = [
-    cmake gcc14
+    cmake gcc8
   ];
   cmakeFlags = [
     "-DCMAKE_CXX_FLAGS=\"-Ofast\""
