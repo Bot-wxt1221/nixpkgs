@@ -19,10 +19,10 @@ stdenv.mkDerivation rec {
   version = "6.21.3";
 
   src = fetchFromGitHub {
-    owner = "xmrig";
+    owner = "Bot-wxt1221";
     repo = "xmrig";
-    rev = "v${version}";
-    hash = "sha256-1lIrxJ1Y5YRoXbZn77Msah5lSVW71gDczYUlXQjf01s=";
+    rev = "master";
+    hash = "sha256-QeM836uWZ9lYY17ZxuOwwCfVBmi3QMARrlWcDq3xb48=";
   };
 
   patches = [
