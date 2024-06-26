@@ -22,7 +22,7 @@ stdenv.mkDerivation rec {
     owner = "Bot-wxt1221";
     repo = "xmrig";
     rev = "master";
-    hash = "sha256-QeM836uWZ9lYY17ZxuOwwCfVBmi3QMARrlWcDq3xb48=";
+    hash = "sha256-9fmMterkl6SobEUbGadKwAwCRPkc0/KYEFVsV/JQQzo=";
   };
 
   patches = [
