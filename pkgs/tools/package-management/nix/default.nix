@@ -139,7 +139,7 @@ in lib.makeExtensible (self: ({
       patch-monitorfdhup
     ];
     self_attribute_name = "nix_2_3";
-    maintainers = with lib.maintainers; [ flokli raitobezarius ];
+    maintainers = with lib.maintainers; [ flokli ];
   }).override { boehmgc = boehmgc-nix_2_3; }).overrideAttrs {
     # https://github.com/NixOS/nix/issues/10222
     # spurious test/add.sh failures
@@ -147,8 +147,8 @@ in lib.makeExtensible (self: ({
   };
 
   nix_2_18 = common {
-    version = "2.18.2";
-    hash = "sha256-8gNJlBlv2bnffRg0CejiBXc6U/S6YeCLAdHrYvTPyoY=";
+    version = "2.18.3";
+    hash = "sha256-430V4oN1Pid0h3J1yucrik6lbDh5D+pHI455bzLPEDY=";
     self_attribute_name = "nix_2_18";
   };
 
