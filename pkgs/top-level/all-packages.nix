@@ -5272,8 +5272,6 @@ with pkgs;
 
   futhark = haskell.lib.compose.justStaticExecutables haskellPackages.futhark;
 
-  fx = callPackage ../development/tools/fx { };
-
   tllist = callPackage ../development/libraries/tllist { };
 
   fcft = callPackage ../development/libraries/fcft { };
@@ -12177,7 +12175,7 @@ with pkgs;
   raider = callPackage ../applications/misc/raider { };
 
   railway = callPackage ../development/tools/railway {
-    inherit (darwin.apple_sdk.frameworks) CoreServices Security;
+    inherit (darwin.apple_sdk.frameworks) CoreServices Security SystemConfiguration;
   };
 
   quota = if stdenv.isLinux then linuxquota else unixtools.quota;
@@ -32859,8 +32857,6 @@ with pkgs;
     pythonPackages = python3Packages;
   };
 
-  n8n = callPackage ../applications/networking/n8n { };
-
   neomutt = darwin.apple_sdk_11_0.callPackage ../applications/networking/mailreaders/neomutt { };
 
   neosay = callPackage ../applications/networking/instant-messengers/neosay { };
@@ -36894,12 +36890,6 @@ with pkgs;
   planetary_annihilation = callPackage ../games/planetaryannihilation { };
 
   principia = callPackage ../games/principia { };
-
-  prismlauncher-unwrapped = kdePackages.callPackage ../games/prismlauncher {
-    inherit (darwin.apple_sdk.frameworks) Cocoa;
-  };
-
-  prismlauncher = kdePackages.callPackage ../games/prismlauncher/wrapper.nix { };
 
   pong3d = callPackage ../games/pong3d { };
 
