@@ -6659,6 +6659,12 @@
     githubId = 1109959;
     name = "Florian Jacob";
   };
+  floriansanderscc = {
+    email = "florian.sanders+nixos@clever-cloud.com";
+    github = "florian-sanders-cc";
+    githubId = 100240294;
+    name = "Florian Sanders";
+  };
   flosse = {
     email = "mail@markus-kohlhase.de";
     github = "flosse";
@@ -11456,6 +11462,12 @@
     github = "limeytexan";
     githubId = 36448130;
     name = "Michael Brantley";
+  };
+  linbreux = {
+    email = "linbreux@gmail.com";
+    github = "linbreux";
+    githubId = 29354411;
+    name = "linbreux";
   };
   linc01n = {
     email = "git@lincoln.hk";
