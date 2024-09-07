@@ -4,6 +4,7 @@
   fetchFromGitHub,
   enableZlib ? true,
   zlib,
+  cmake,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
