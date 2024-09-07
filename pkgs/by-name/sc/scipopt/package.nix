@@ -5,6 +5,7 @@
   enableZlib ? true,
   zlib,
   cmake,
+  soplex,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
