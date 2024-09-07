@@ -30,6 +30,7 @@ stdenv.mkDerivation (finalAttrs: {
   cmakeFlags =
     [
       "-B build"
+      "-DAUTOBUILD=ON"
     ]
     ++ lib.optionals enableZlib [
       "-DZLIB_INCLUDE_DIR=${lib.getDev zlib}/include/"
