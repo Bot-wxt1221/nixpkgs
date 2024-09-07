@@ -31,8 +31,8 @@ stdenv.mkDerivation (finalAttrs: {
     [
       "-B build"
     ]
-    ++ lib.mkIf enableZlib [
-      "-D -DZLIB_INCLUDE_DIR=${lib.getDev zlib}/include/"
+    ++ lib.optionals enableZlib [
+      "-DZLIB_INCLUDE_DIR=${lib.getDev zlib}/include/"
       "-DZLIB_LIBRARY=${zlib}/lib"
     ];
 
