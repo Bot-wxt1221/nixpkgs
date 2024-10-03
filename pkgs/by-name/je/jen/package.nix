@@ -4,22 +4,25 @@
   fetchCrate,
   stdenv,
   darwin,
+  nix-update-script,
 }:
 
 rustPlatform.buildRustPackage rec {
   pname = "jen";
-  version = "1.6.0";
+  version = "1.7.0";
 
   src = fetchCrate {
     inherit pname version;
-    hash = "sha256-fpv/IzU23yAz1cumTbdQP6wHJX2U4acNxq8Zrx+YQVs=";
+    hash = "sha256-nouAHEo5JJtZ0pV8ig/iJ3eB8uPz3yMVIYP6RrNVlSA=";
   };
 
-  cargoHash = "sha256-LKiPG7k5UgaESP1ShsIWNMnm9resbRje746txOBo+Qs=";
+  cargoHash = "sha256-Nia5SsmxdBrWO4zmkoi0gCmknkhwsM8PZ52aPVMnp90=";
 
   buildInputs = lib.optionals stdenv.hostPlatform.isDarwin [
     darwin.apple_sdk.frameworks.Security
   ];
+
+  passthru.updateScript = nix-update-script { };
 
   meta = {
     description = "Simple CLI generation tool for creating large datasets";
