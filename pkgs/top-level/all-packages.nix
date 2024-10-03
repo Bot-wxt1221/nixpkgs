@@ -8861,8 +8861,6 @@ with pkgs;
 
   jello = with python3Packages; toPythonApplication jello;
 
-  jen = callPackage ../tools/text/jen { };
-
   jet = callPackage ../development/tools/jet { };
 
   jf = callPackage ../development/tools/jf { };
