@@ -1,0 +1,24 @@
+From 3494403da43ffeedb928a2770da3e556929d74bf Mon Sep 17 00:00:00 2001
+From: wxt <3264117476@qq.com>
+Date: Sun, 6 Oct 2024 23:38:54 +0800
+Subject: [PATCH] tt
+
+---
+ src/tracer/ebpf/syscall_schema.h | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/tracer/ebpf/syscall_schema.h b/src/tracer/ebpf/syscall_schema.h
+index 185cb10..c4436ca 100644
+--- a/src/tracer/ebpf/syscall_schema.h
++++ b/src/tracer/ebpf/syscall_schema.h
+@@ -23,6 +23,7 @@
+ #include <string>
+ #include <vector>
+ #include <iostream>
++#include <cstring>
+ 
+ #include "kern/procmonEBPF_common.h"
+ #include "syscalls.h"
+-- 
+2.46.0
+

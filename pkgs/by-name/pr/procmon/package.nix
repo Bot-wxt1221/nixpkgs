@@ -13,6 +13,7 @@
   clang,
   libbpf,
   glibc,
+  python3,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
@@ -40,6 +41,22 @@ stdenv.mkDerivation (finalAttrs: {
     hash = "sha256-FK2ya416yFWvzT2YcMUCuj0S6rTdDLFiHgbZ/StHuoQ=";
   };
 
+  ebpf-extra = stdenv.mkDerivation {
+    inherit (finalAttrs) meta version;
+    pname = "ebpf-extra";
+    dontUnpack = true;
+    dontBuild = true;
+    dontCheck = true;
+    nativeBuildInputs = [
+      python3
+    ];
+    installPhase = ''
+      mkdir -p $out
+      python3 ${finalAttrs.src-SysinternalsEBPF}/generateUnameOffsets.py ${finalAttrs.src-SysinternalsEBPF}/offsetsNeeded.json PUBLIC_HEADER > $out/sysinternalsEBPFoffsets.h
+      python3 ${finalAttrs.src-SysinternalsEBPF}/generateUnameOffsets.py ${finalAttrs.src-SysinternalsEBPF}/offsetsNeeded.json HEADER > $out/unameOffsets.h
+    '';
+  };
+
   kernelSrc = stdenv.mkDerivation {
     inherit (finalAttrs) meta;
     pname = "kernel-syscall";
@@ -64,6 +81,7 @@ stdenv.mkDerivation (finalAttrs: {
       inherit (finalAttrs) kernelSrc;
       bash = lib.getExe bash;
     })
+    ./0001-tt.patch
   ];
 
   hardeningDisable = [ "zerocallusedregs" ];
@@ -81,18 +99,33 @@ stdenv.mkDerivation (finalAttrs: {
   postPatch = ''
     substituteInPlace CMakeLists.txt \
       --replace-fail "set(CLANG_INCLUDES" 'set(CLANG_INCLUDES
-      -I "${kernel.dev}/lib/modules/${kernel.modDirVersion}/build/include/generated/uapi"
-      -I "${kernel.dev}/lib/modules/${kernel.modDirVersion}/build/arch/x86/include/generated"
-      -I "${kernel.dev}/lib/modules/${kernel.modDirVersion}/source/tools/include/nolibc"
+      -D__x86_64__
+      -I "${kernel.dev}/lib/modules/${kernel.modDirVersion}/source/include/uapi"
       -I "${kernel.dev}/lib/modules/${kernel.modDirVersion}/source/include"
       -I "${glibc.dev}/include"
-      -I "${kernel.dev}/lib/modules/${kernel.modDirVersion}/source/tools/include"
       -I "${libbpf}/include"
       -I "${finalAttrs.src-SysinternalsEBPF}/ebpfKern"
       -I "${finalAttrs.src-SysinternalsEBPF}"
+      -I "${finalAttrs.ebpf-extra}"
       -I "${libbpf}/include/bpf"' \
       --replace-fail "/usr/bin/ld" "$LD"
+    substituteInPlace src/tracer/ebpf/kern/vmlinux.h \
+      --replace-fail "long long" "long"
+    substituteInPlace src/common/stack_trace.h \
+      --replace-fail "uint64_t" "unsigned long long"
+    substituteInPlace src/common/telemetry.h \
+      --replace-fail "uint64_t" "unsigned long long"
+    substituteInPlace src/tracer/ebpf/syscall_schema.h \
+      --replace-fail "std::strcpy" "strcpy"
   '';
+
+  env = {
+    NIX_CFLAGS_COMPILE = toString [
+      "-I ${finalAttrs.src-SysinternalsEBPF}"
+      "-I ${finalAttrs.src-SysinternalsEBPF}/ebpfKern"
+      "-I ${finalAttrs.ebpf-extra}"
+    ];
+  };
 
   passthru.updateScript = nix-update-script { };
 
