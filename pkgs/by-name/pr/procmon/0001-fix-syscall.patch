@@ -1,0 +1,44 @@
+From 42bfc53a9c0efeb9f25293d2a560164379d066ad Mon Sep 17 00:00:00 2001
+From: wxt <3264117476@qq.com>
+Date: Sun, 6 Oct 2024 18:53:59 +0800
+Subject: [PATCH] fix
+
+---
+ getsyscalls/getsyscalls.sh | 21 ++-------------------
+ 1 file changed, 2 insertions(+), 19 deletions(-)
+
+diff --git a/getsyscalls/getsyscalls.sh b/getsyscalls/getsyscalls.sh
+index 9f24314..56fc20b 100755
+--- a/getsyscalls/getsyscalls.sh
++++ b/getsyscalls/getsyscalls.sh
+@@ -1,25 +1,8 @@
+-#!/bin/bash
++#!@bash@
+ 
+-if [ $# -ne 1 ]; then
+-    echo "Usage: $0 <Linux version>"
+-    exit 1
+-fi
+-
+-VERSION=$1
+-URL="https://raw.githubusercontent.com/torvalds/linux/v${VERSION}/arch/x86/entry/syscalls/syscall_64.tbl"
+-INPUT_FILE="syscall_${VERSION}.tbl"
++INPUT_FILE="@kernelSrc@"
+ OUTPUT_FILE="../src/tracer/ebpf/syscalls.h"
+ 
+-# Fetch the file
+-echo "Fetching syscall table from $URL ..."
+-wget -q "$URL" -O "$INPUT_FILE"
+-
+-# Check if download was successful
+-if [ $? -ne 0 ]; then
+-    echo "Failed to download file from $URL"
+-    exit 1
+-fi
+-
+ # Run getsyscalls program
+ echo "Running getsyscalls on $INPUT_FILE and storing output in $OUTPUT_FILE ..."
+ ./getsyscalls "$INPUT_FILE" "$OUTPUT_FILE"
+-- 
+2.46.0
+

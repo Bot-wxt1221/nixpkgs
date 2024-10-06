@@ -1,0 +1,33 @@
+From 0e958e1b6b2bb781e6509da24f9ee03fe42b17e7 Mon Sep 17 00:00:00 2001
+From: wxt <3264117476@qq.com>
+Date: Sun, 6 Oct 2024 18:31:38 +0800
+Subject: [PATCH] fix
+
+---
+ CMakeLists.txt | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index e85d1b0..03bf938 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -135,8 +135,7 @@ set_target_properties(sqlite3-static
+ # Fetch Catch2 testing framework.
+ #
+ FetchContent_Declare(Catch2
+-                     GIT_REPOSITORY https://github.com/catchorg/Catch2.git
+-                     GIT_TAG        v2.7.2
++                    SOURCE_DIR @catch2@
+                     )
+ FetchContent_MakeAvailable(Catch2)
+ 
+@@ -347,4 +346,4 @@ add_custom_target(run_getsyscalls
+ )
+ 
+ # Add dependencies to ensure parse_syscalls runs before other targets
+-add_dependencies(procmon run_getsyscalls)
+\ No newline at end of file
++add_dependencies(procmon run_getsyscalls)
+-- 
+2.46.0
+

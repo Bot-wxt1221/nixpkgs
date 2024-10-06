@@ -1,0 +1,54 @@
+{
+  stdenv,
+  lib,
+  fetchFromGitHub,
+  cmake,
+  sqlite,
+  nix-update-script,
+  ncurses,
+  bash,
+}:
+
+stdenv.mkDerivation(finalAttrs:{
+  pname = "procmon";
+  version = "2.0.0.0";
+
+  src = fetchFromGitHub {
+    owner = "Sysinternals";
+    repo = "ProcMon-for-Linux";
+    rev = "refs/tags/${finalAttrs.version}";
+    hash = "sha256-yip9/dtfCbq/GyY2FBpuS+F3j3Pd6hbs7UpNM82ilKU=";
+  };
+
+  src-catch2 = fetchFromGitHub {
+    owner = "catchorg";
+    repo = "Catch2";
+    rev = "refs/tags/v2.7.2";
+    hash = "sha256-AiXGtYdEUaORBJWW7Zg+U5XpLMW4vci4SlxtJRyMnkA=";
+  };
+
+  patches = [
+    ./0001-fix.patch
+  ];
+
+  nativeBuildInputs = [
+    cmake
+  ];
+
+  buildInputs = [
+    sqlite
+    ncurses
+  ];
+
+  passthru.updateScript = nix-update-script { };
+
+  meta = {
+    description = "Linux reimagining of the classic Procmon tool from the Sysinternals suite of tools for Windows";
+    homepage = "https://github.com/Sysinternals/ProcMon-for-Linux";
+    changelog = "https://github.com/Sysinternals/ProcMon-for-Linux/releases/tag/2.0.0.0";
+    license = lib.licenses.mit;
+    mainProgram = "";
+    maintainers = with lib.maintainers; [ bot-wxt1221];
+    platforms = lib.platforms.linux;
+  };
+})
