@@ -7,6 +7,11 @@
   libayatana-appindicator,
   openssl,
   webkitgtk_4_1,
+  cargo-tauri,
+  fetchNpmDeps,
+  wrapGAppsHook3,
+  nodejs,
+  npmHooks
 }:
 
 rustPlatform.buildRustPackage rec {
@@ -20,16 +25,13 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-xOi/AUlH0FeenTXz3hsDYixCEl+yr22PGy6Ow4TKxY0=";
   };
 
-  sourceRoot = "${src.name}/src-tauri";
-
-  webui = callPackage ./webui.nix {
-    inherit
-      src
-      pname
-      version
-      meta
-      ;
+  npmDeps = fetchNpmDeps {
+    name = "${pname}-webui";
+    inherit src;
+    hash = "sha256-oHBFuX65D/FgnGa03jjpIKAdH8Q4c2NrpD64bhfe720=";
   };
+
+  sourceRoot = "${src.name}/src-tauri";
 
   env = {
     OPENSSL_NO_VENDOR = 1;
@@ -40,14 +42,23 @@ rustPlatform.buildRustPackage rec {
     openssl
   ];
 
+  npmRoot = "..";
+
+  buildAndTestDir = ".";
+
   nativeBuildInputs = [
     pkg-config
+    cargo-tauri.hook
+    nodejs
+    npmHooks.npmConfigHook
+    wrapGAppsHook3
   ];
 
-  cargoHash = "sha256-u3SkRA7327ZwqEnB+Xq2JDbI0k5HfeKzV17dvQ8B6xk=";
+  cargoHash = "sha256-1g0MQi10+qeRrcsSQXdtj6TrktMjnAM3tIrkeRudGk8=";
 
   postPatch = ''
-    buildRoot=$(pwd)
+    chmod +w ..
+
     pushd $cargoDepsCopy/libappindicator-sys
     oldHash=$(sha256sum src/lib.rs | cut -d " " -f 1)
     substituteInPlace src/lib.rs \
@@ -59,14 +70,10 @@ rustPlatform.buildRustPackage rec {
     pushd $cargoDepsCopy/jj-cli
     oldHash=$(sha256sum build.rs | cut -d " " -f 1)
     substituteInPlace build.rs \
-      --replace-fail 'let path = std::env::var("CARGO_MANIFEST_DIR").unwrap();' "let path = \"$buildRoot\";"
+      --replace-fail 'let path = std::env::var("CARGO_MANIFEST_DIR").unwrap();' "let path = \"$cargoDepsCopy/jj-cli\";"
     substituteInPlace .cargo-checksum.json \
       --replace-fail $oldHash $(sha256sum build.rs | cut -d " " -f 1)
     popd
-
-    substituteInPlace ./tauri.conf.json \
-      --replace-fail '"frontendDist": "../dist"' '"frontendDist": "${webui}"' \
-      --replace-fail '"beforeBuildCommand": "npm run build"' '"beforeBuildCommand": ""'
   '';
 
   meta = {
