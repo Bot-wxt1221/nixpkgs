@@ -6207,8 +6207,6 @@ with pkgs;
     inherit (darwin.apple_sdk.frameworks) Carbon IOKit;
   };
 
-  cemu-ti = qt5.callPackage ../applications/science/math/cemu-ti { };
-
   cider = callPackage ../applications/audio/cider { };
 
   iat = callPackage ../tools/cd-dvd/iat { };
