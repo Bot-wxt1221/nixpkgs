@@ -1,16 +1,18 @@
-{ stdenv
-, lib
-, fetchFromGitHub
-, cmake
-, pkg-config
-, qt6
-, libarchive
-, libpng
+{
+  stdenv,
+  lib,
+  fetchFromGitHub,
+  cmake,
+  pkg-config,
+  qt6,
+  libarchive,
+  libpng,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "CEmu";
   version = "2.0";
+
   src = fetchFromGitHub {
     owner = "CE-Programming";
     repo = "CEmu";
@@ -20,7 +22,6 @@ stdenv.mkDerivation (finalAttrs: {
   };
 
   sourceRoot = "${finalAttrs.src.name}/gui/qt/";
-
 
   nativeBuildInputs = [
     cmake
@@ -40,7 +41,10 @@ stdenv.mkDerivation (finalAttrs: {
     homepage = "https://ce-programming.github.io/CEmu";
     license = licenses.gpl3Plus;
     maintainers = with maintainers; [ luc65r ];
-    platforms = [ "x86_64-linux" "x86_64-darwin" ];
+    platforms = [
+      "x86_64-linux"
+      "x86_64-darwin"
+    ];
     broken = stdenv.hostPlatform.isDarwin;
   };
 })
