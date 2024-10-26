@@ -7,6 +7,7 @@
   qt6,
   libarchive,
   libpng,
+  fetchpatch,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
@@ -23,6 +24,10 @@ stdenv.mkDerivation (finalAttrs: {
 
   sourceRoot = "${finalAttrs.src.name}/gui/qt/";
 
+  patches = [
+    ./0001-Resolve-ambiguous-overloaded-function-argument.patch
+  ];
+
   nativeBuildInputs = [
     cmake
     qt6.wrapQtAppsHook
@@ -35,12 +40,12 @@ stdenv.mkDerivation (finalAttrs: {
     libpng
   ];
 
-  meta = with lib; {
+  meta = {
     description = "Third-party TI-84 Plus CE / TI-83 Premium CE emulator, focused on developer features";
     mainProgram = "CEmu";
     homepage = "https://ce-programming.github.io/CEmu";
-    license = licenses.gpl3Plus;
-    maintainers = with maintainers; [ luc65r ];
+    license = lib.licenses.gpl3Plus;
+    maintainers = with lib.maintainers; [ luc65r ];
     platforms = [
       "x86_64-linux"
       "x86_64-darwin"

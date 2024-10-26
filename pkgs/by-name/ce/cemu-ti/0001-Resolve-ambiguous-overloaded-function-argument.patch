@@ -1,0 +1,25 @@
+From c5807c11bb4b59adab74ec07dc678f8326b780c4 Mon Sep 17 00:00:00 2001
+From: wxt <3264117476@qq.com>
+Date: Sat, 26 Oct 2024 21:49:49 +0800
+Subject: [PATCH] Resolve ambiguous overloaded function argument
+
+---
+ mainwindow.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/mainwindow.cpp b/mainwindow.cpp
+index f03a743e..70c29a45 100644
+--- a/mainwindow.cpp
++++ b/mainwindow.cpp
+@@ -970,7 +970,7 @@ void MainWindow::showEvent(QShowEvent *e) {
+ DockWidget *MainWindow::redistributeFindDock(const QPoint &pos) {
+     QWidget *child = childAt(pos);
+     if (QTabBar *tabBar = findSelfOrParent<QTabBar *>(child)) {
+-        child = childAt({pos.x(), tabBar->mapTo(this, QPoint{}).y() - 1});
++        child = childAt(QPoint({pos.x(), tabBar->mapTo(this, QPoint{}).y() - 1}));
+     }
+     return findSelfOrParent<DockWidget *>(child);
+ }
+-- 
+2.46.1
+
