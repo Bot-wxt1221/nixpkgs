@@ -1,6 +1,8 @@
 name: Eval
 
-on: pull_request_target
+on:
+  pull_request_target:
+  push:
 
 permissions:
   contents: read
