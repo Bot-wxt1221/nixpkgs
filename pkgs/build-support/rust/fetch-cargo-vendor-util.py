@@ -20,9 +20,19 @@ def load_toml(path: Path) -> dict[str, Any]:
         return tomllib.load(f)
 
 
+def gethtml(url):
+    i = 0
+    while i < 10:
+        try:
+            html = requests.get(url, stream=True)
+            return html
+        except requests.exceptions.RequestException:
+            i += 1
+
+
 def download_file_with_checksum(url: str, destination_path: Path) -> str:
     sha256_hash = hashlib.sha256()
-    with requests.get(url, stream=True) as response:
+    with gethtml(url) as response:
         if not response.ok:
             raise Exception(f"Failed to fetch file from {url}. Status code: {response.status_code}")
         with open(destination_path, "wb") as file:
