@@ -113,7 +113,7 @@ let
       # How many attributes to be evaluating at any single time.
       # This effectively limits the maximum memory usage.
       # Decrease this if too much memory is used
-      simultaneousAttrsPerSystem ? 100000,
+      simultaneousAttrsPerSystem ? 10000,
       quickTest ? false,
     }:
     let
