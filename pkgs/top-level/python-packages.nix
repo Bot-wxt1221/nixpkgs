@@ -7546,6 +7546,10 @@ self: super: with self; {
 
   litestar-htmx = callPackage ../development/python-modules/litestar-htmx { };
 
+  litestar = toPythonModule (pkgs.litestar.override {
+    python3Packages = pythonPackages;
+  });
+
   littleutils = callPackage ../development/python-modules/littleutils { };
 
   livelossplot = callPackage ../development/python-modules/livelossplot { };
