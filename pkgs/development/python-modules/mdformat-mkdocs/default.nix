@@ -15,7 +15,7 @@
 
 buildPythonPackage rec {
   pname = "mdformat-mkdocs";
-  version = "4.1.1";
+  version = "4.1.2";
   pyproject = true;
 
   disabled = pythonOlder "3.8";
@@ -24,12 +24,12 @@ buildPythonPackage rec {
     owner = "KyleKing";
     repo = "mdformat-mkdocs";
     tag = "v${version}";
-    hash = "sha256-KH0edaqH5STRYtcSqbR0uTdlZVKuHRS7AUgd25fjvEE=";
+    hash = "sha256-+2w7UrOPSCUDc6jnLAW0/njq+aJ4y+H8n7gshxLj8/Q=";
   };
 
-  nativeBuildInputs = [ flit-core ];
+  build-system = [ flit-core ];
 
-  propagatedBuildInputs = [
+  dependencies = [
     mdformat
     mdformat-admon
     mdformat-gfm
@@ -49,11 +49,11 @@ buildPythonPackage rec {
 
   pythonImportsCheck = [ "mdformat_mkdocs" ];
 
-  meta = with lib; {
+  meta = {
     description = "Mdformat plugin for MkDocs";
     homepage = "https://github.com/KyleKing/mdformat-mkdocs";
     changelog = "https://github.com/KyleKing/mdformat-mkdocs/releases/tag/${src.tag}";
-    license = licenses.mit;
-    maintainers = with maintainers; [ aldoborrero ];
+    license = lib.licenses.mit;
+    maintainers = with lib.maintainers; [ aldoborrero ];
   };
 }
