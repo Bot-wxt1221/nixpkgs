@@ -5,6 +5,7 @@
 
   # build-system
   setuptools,
+  flit-core,
 
   # dependencies
   affine,
@@ -30,18 +31,19 @@
 
 buildPythonPackage rec {
   pname = "odc-geo";
-  version = "0.4.10";
+  version = "0.5.0";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "opendatacube";
     repo = "odc-geo";
     tag = "v${version}";
-    hash = "sha256-f4wUUzcv4NM44zrCvW3sBRybppIBZEAm+oiTSW1B+Fw=";
+    hash = "sha256-qFHFT68hJKCBcYKZypSoQufHYXVm3LiD7mn5eQtYYO8=";
   };
 
   build-system = [
     setuptools
+    flit-core
   ];
 
   dependencies = [
@@ -96,6 +98,11 @@ buildPythonPackage rec {
     "test_warp_nan"
     # requires imagecodecs package (currently not available on nixpkgs)
     "test_cog_with_dask_smoke_test"
+  ];
+
+  pytestFlags = [
+    # According to github actions
+    "tests/"
   ];
 
   pythonImportsCheck = [
